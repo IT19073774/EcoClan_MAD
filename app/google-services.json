@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "600139627370",
+    "firebase_url": "https://ecoclan-v2.firebaseio.com",
+    "project_id": "ecoclan-v2",
+    "storage_bucket": "ecoclan-v2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600139627370:android:8d5349b7ee416006b10313",
+        "android_client_info": {
+          "package_name": "com.example.ecoclan_v2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600139627370-4qijdin2sc2blgjt1jdnma9pjf1efsmo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ecoclan_v2",
+            "certificate_hash": "448e15df61dbcfafe2a963a1c0a2e620dff01ad2"
+          }
+        },
+        {
+          "client_id": "600139627370-pnb9448tkp0j6q5mcl20ej4e2p7r7vn5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1biYwhh2YObsAsbodUAvFzmBbx2yYxb0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "600139627370-pnb9448tkp0j6q5mcl20ej4e2p7r7vn5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
