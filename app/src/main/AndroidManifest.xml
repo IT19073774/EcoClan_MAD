@@ -6,8 +6,10 @@
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the "MyLocation" functionality.
     -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -57,12 +59,46 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
+        </activity>
+        <!-- IT19056494-->
+        <activity
+            android:name=".UserMap"
+            android:label="@string/title_activity_user_map" />
+        <activity android:name=".addResource" />
+        <activity
+            android:name=".LoginUser"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Guide_Admin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Guide"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ecoCal"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EditProfile"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".userAccount"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RegisterUser"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".welcome"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

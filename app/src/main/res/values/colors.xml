@@ -11,6 +11,17 @@
     <color name="transparent">#00808080</color>
     <color name="green">#289700</color>
     <color name="highlight">#FFC000</color>
+
+<!--    IT19056494-->
+    <color name="U_Black">#000000</color>
+    <color name="U_White">#FFFFFF</color>
+    <color name="U_Gray">#606060</color>
+    <color name="Light_Gray">#535252</color>
+    <color name="Dark_Gray">#1B1B1B</color>
+    <color name="Dark_Green">#1E7503</color>
+    <color name="Light_Green">#029C35</color>
+
+
 </resources>
 
 

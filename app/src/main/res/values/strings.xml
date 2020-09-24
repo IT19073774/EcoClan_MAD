@@ -21,6 +21,56 @@
     <string name="previous">Previous</string>
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    //materials
+    <string name="material_cloth">Cloth</string>
+    <string name="material_Paper">Paper</string>
+    <string name="material_Plastic">Plastic</string>
+    <string name="material_Metal">Metal</string>
+    <string name="material_Glass">Glass</string>
+
+    //activity title
+    <string name="activity_t_ecocal">ecoCal</string>
+    <string name="activity_t_editinfo">Edit Info!</string>
+    <string name="activity_t_guide">Guide</string>
+    <string name="activity_t_login">Welcome to ecoClan!</string>
+    <string name="activity_t_Signup">Sign Up!</string>
+
+    //button
+    <string name="btn_calculate">Calculate</string>
+    <string name="btn_edit_profile">edit profile</string>
+    <string name="btn_Logout">Logout</string>
+    <string name="btn_delete_acc">Delete Account</string>
+    <string name="btn_update">Update</string>
+    <string name="btn_register">Register</string>
+    <string name="btn_signup">Sign UP</string>
+
+    //navBar
+    <string name="navBar_guide">Guide</string>
+    <string name="navBar_ecocal">ecoCal</string>
+    <string name="navBar_profile">Profile</string>
+
+    //lable
+    <string name="Lable_total">Total (Rs.)</string>
+    <string name="Lable_ecocal">calculate your payment.</string>
+    <string name="Lable_email">Email:</string>
+    <string name="Lable_phone">Phone:</string>
+    <string name="Lable_address">Address:</string>
+    <string name="Lable_AVAILABLE">AVAILABLE</string>
+    <string name="Lable_editinfo">This is,</string>
+    <string name="Lable_editinfo_updateinfo">Update your user information here.</string>
+    <string name="Lable_editinfo_deleteacc">Delete your account.</string>
+    <string name="Lable_guide">How to arrange your waste materials.</string>
+    <string name="Lable_login_member">ecoClan Member Login!</string>
+    <string name="Lable_login_register">New Here? Create Account</string>
+    <string name="Lable_login_forgotPassword">Forgot Password?</string>
+    <string name="Lable_login_employee">Employee login -></string>
+    <string name="Lable_reg">Hello,</string>
+    <string name="Lablereg_member">Member.</string>
+    <string name="Lablereg_red_login">Alredy Registered? Login Here</string>
+    <string name="title_activity_user_map">Map</string>
+    <string name="Lable_title_map_">Enter Meterial details here.</string>
+
 </resources>
 
 

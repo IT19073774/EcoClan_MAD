@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgecocal"
+    tools:context=".ecoCal">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hind_madurai_semibold"
+        android:text="@string/activity_t_ecocal"
+        android:textColor="@color/U_White"
+        android:textSize="54sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.174"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.111" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="195dp"
+        android:layout_height="3dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:background="@color/U_White"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.185" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hind_madurai_light"
+        android:text="@string/Lable_ecocal"
+        android:textColor="@color/U_White"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.193"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.195" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="95dp"
+        android:layout_height="103dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.984"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.025"
+        app:srcCompat="@drawable/logo" />
+
+    //Organic
+
+    <TextView
+        android:id="@+id/Organic"
+        android:layout_width="199dp"
+        android:layout_height="30dp"
+        android:fontFamily="@font/hind_madurai_light"
+        android:text="@string/material_cloth"
+        android:textColor="@color/U_Black"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.398" />
+
+    <View
+        android:id="@+id/hr1"
+        android:layout_width="378dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/U_Gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Organic" />
+
+    <EditText
+        android:id="@+id/Clothfill"
+        android:layout_width="126dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/custom_edit_text"
+        android:ems="10"
+        android:hint="kg"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="25dip"
+        android:textColor="@color/Dark_Gray"
+        android:textColorHint="@color/Light_Gray"
+        app:layout_constraintBottom_toTopOf="@+id/hr1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    //Paper
+
+    <TextView
+        android:id="@+id/Paper"
+        android:layout_width="199dp"
+        android:layout_height="30dp"
+        android:fontFamily="@font/hind_madurai_light"
+        android:text="@string/material_Paper"
+        android:textColor="@color/U_Black"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Organic"
+        app:layout_constraintVertical_bias="0.076" />
+
+    <View
+        android:id="@+id/hr2"
+        android:layout_width="378dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/U_Gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Paper" />
+
+    <EditText
+        android:id="@+id/Paperfill"
+        android:layout_width="126dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/custom_edit_text"
+        android:ems="10"
+        android:hint="kg"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="25dip"
+        android:textColor="@color/Dark_Gray"
+        android:textColorHint="@color/Light_Gray"
+        app:layout_constraintBottom_toTopOf="@+id/hr2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    //Plastic
+
+    <TextView
+        android:id="@+id/Plastic"
+        android:layout_width="199dp"
+        android:layout_height="30dp"
+        android:fontFamily="@font/hind_madurai_light"
+        android:text="@string/material_Plastic"
+        android:textColor="@color/U_Black"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Paper"
+        app:layout_constraintVertical_bias="0.077" />
+
+    <View
+        android:id="@+id/hr3"
+        android:layout_width="378dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/U_Gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Plastic" />
+
+    <EditText
+        android:id="@+id/Plasticfill"
+        android:layout_width="126dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/custom_edit_text"
+        android:ems="10"
+        android:hint="kg"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="25dip"
+        android:textColor="@color/Dark_Gray"
+        android:textColorHint="@color/Light_Gray"
+        app:layout_constraintBottom_toTopOf="@+id/hr3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    //Metal
+
+    <TextView
+        android:id="@+id/Metal"
+        android:layout_width="199dp"
+        android:layout_height="30dp"
+        android:fontFamily="@font/hind_madurai_light"
+        android:text="@string/material_Metal"
+        android:textColor="@color/U_Black"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Plastic"
+        app:layout_constraintVertical_bias="0.109" />
+
+    <View
+        android:id="@+id/hr4"
+        android:layout_width="378dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/U_Gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Metal" />
+
+
+    <EditText
+        android:id="@+id/Metalfill"
+        android:layout_width="126dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/custom_edit_text"
+        android:ems="10"
+        android:hint="kg"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="25dip"
+        android:textColor="@color/Dark_Gray"
+        android:textColorHint="@color/Light_Gray"
+        app:layout_constraintBottom_toTopOf="@+id/hr4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    //Glass
+
+
+    <TextView
+        android:id="@+id/Glass"
+        android:layout_width="199dp"
+        android:layout_height="30dp"
+        android:fontFamily="@font/hind_madurai_light"
+        android:text="@string/material_Glass"
+        android:textColor="@color/U_Black"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Metal"
+        app:layout_constraintVertical_bias="0.13" />
+
+    <View
+        android:id="@+id/hr5"
+        android:layout_width="378dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/U_Gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Glass" />
+
+    <View
+        android:id="@+id/vr"
+        android:layout_width="1dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/U_Gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.58"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Glass" />
+
+    <EditText
+        android:id="@+id/Glassfill"
+        android:layout_width="126dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/custom_edit_text"
+        android:ems="10"
+        android:hint="kg"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="25dip"
+        android:textColor="@color/Dark_Gray"
+        android:textColorHint="@color/Light_Gray"
+        app:layout_constraintBottom_toTopOf="@+id/hr5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/calculate"
+        android:layout_width="157dp"
+        android:layout_height="48dp"
+        android:background="@drawable/custom_btn_green"
+        android:onClick="onBtnTotal"
+        android:text="@string/btn_calculate"
+        android:textColor="@color/U_White"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.837" />
+
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="117dp"
+        android:layout_height="42dp"
+        android:text="0.0"
+        android:textColor="@color/U_Black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.669"
+        app:layout_constraintStart_toEndOf="@+id/calculate"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.876" />
+
+    <TextView
+        android:id="@+id/totaltag"
+        android:layout_width="117dp"
+        android:layout_height="42dp"
+        android:text="@string/Lable_total"
+        android:textColor="@color/U_Black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.669"
+        app:layout_constraintStart_toEndOf="@+id/calculate"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.83" />
+
+    //navbar
+
+    <TextView
+        android:id="@+id/icon5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/navBar_ecocal"
+        android:textColor="@color/U_Black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.977" />
+
+    <TextView
+        android:id="@+id/icon4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/navBar_profile"
+        android:textColor="@color/U_White"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/icon5"
+        app:layout_constraintHorizontal_bias="0.349"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.977" />
+
+    <TextView
+        android:id="@+id/icon6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/navBar_guide"
+        android:textColor="@color/U_White"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.655"
+        app:layout_constraintStart_toEndOf="@+id/icon5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.977" />
+
+
+    <View
+        android:id="@+id/vr2"
+        android:layout_width="2dp"
+        android:layout_height="35dp"
+        android:background="@color/U_Black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/icon4"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toEndOf="@+id/icon5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.991" />
+
+    <View
+        android:id="@+id/vr4"
+        android:layout_width="2dp"
+        android:layout_height="35dp"
+        android:background="@color/U_Black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/icon6"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toEndOf="@+id/icon5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.991" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
