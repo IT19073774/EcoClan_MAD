@@ -23,6 +23,6 @@ public class CollectFormActivity extends AppCompatActivity {
     public void generateInvoice(View v) {
         Intent i = new Intent(CollectFormActivity.this,InvoiceActivity.class);
         startActivity(i);
-        //content
+        //sasdasd
     }
 }
