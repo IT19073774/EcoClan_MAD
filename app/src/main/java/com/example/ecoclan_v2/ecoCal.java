@@ -29,7 +29,7 @@ public class ecoCal extends AppCompatActivity {
         icon4 = findViewById(R.id.icon4);
         icon6 = findViewById(R.id.icon6);
         fStore = FirebaseFirestore.getInstance();
-
+        //iconsssss
         //icons
         icon4.setOnClickListener(new View.OnClickListener() {
             @Override
