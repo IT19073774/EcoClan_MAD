@@ -80,6 +80,7 @@
         android:layout_height="42dp"
         android:background="@drawable/custom_btn_white"
         android:text="Employee"
+        android:onClick="onBtnEmployee"
         android:textColor="@color/U_Black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

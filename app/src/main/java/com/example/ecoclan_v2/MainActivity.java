@@ -19,14 +19,14 @@ public class MainActivity extends AppCompatActivity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if(user!=null) {
+        /*if(user!=null) {
             Intent i = new Intent (MainActivity.this, HomeActivity.class);
             startActivity(i);
             finish();
         }
-        else {
+        else {*/
             setContentView(R.layout.activity_main);
-        }
+        /*}*/
     }
     public void openLoginActivity(View v) {
         Intent i = new Intent(MainActivity.this,LogInActivity.class);

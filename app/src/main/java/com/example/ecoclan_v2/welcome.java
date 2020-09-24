@@ -17,4 +17,8 @@ public class welcome extends AppCompatActivity {
     public void onBtnUser(View v) {
         startActivity(new Intent(getApplicationContext(), LoginUser.class));
     }
+
+    public void onBtnEmployee(View v) {
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+    }
 }

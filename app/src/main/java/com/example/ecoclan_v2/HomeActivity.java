@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -176,22 +177,6 @@ public class HomeActivity extends FragmentActivity implements OnMapReadyCallback
                 marker = mMap.addMarker(options);
                 hashMapMarker.put("myLocation",marker);
 
-                /*options.position(new LatLng(6.96662319943162, 79.86848164433901));
-                options.title("Trash");
-                options.snippet("Description");
-                options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE));
-                mMap.addMarker(options);
-                options.position(new LatLng(6.9666912545700015, 79.86778264677211));
-                options.title("Trash");
-                options.snippet("Description");
-                options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE));
-                mMap.addMarker(options);
-                options.position(new LatLng(6.964932443304884, 79.8695376538585));
-                options.title("Trash");
-                options.snippet("Description");
-                options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE));
-                mMap.addMarker(options);*/
-
                 db.collection("Resources").addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
@@ -203,7 +188,6 @@ public class HomeActivity extends FragmentActivity implements OnMapReadyCallback
                             Double lngi =  Double.parseDouble(documentChange.getDocument().getData().get("Longitude").toString());
                             String Material = documentChange.getDocument().getData().get("Material").toString();
                             String resourceID = documentChange.getDocument().getData().get("resourceID").toString();
-
                             MarkerOptions options2 = new MarkerOptions();
                             options2.position(new LatLng(lati, lngi));
                             options2.title(resourceID + " :: " + Material);
@@ -220,6 +204,9 @@ public class HomeActivity extends FragmentActivity implements OnMapReadyCallback
                         }
                     }
                 });
+
+
+
 
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(startLatLng,17));
                 cameraSet = 1;
