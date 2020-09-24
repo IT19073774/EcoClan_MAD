@@ -71,6 +71,40 @@
     <string name="title_activity_user_map">Map</string>
     <string name="Lable_title_map_">Enter Meterial details here.</string>
 
+    //it19071480
+
+    <string name="requestBtn">(Request)</string>
+    <string name="receiveBtn">(Receive)</string>
+    <string name="searchBtn">(Search)</string>
+    <string name="profileBtn">(Profile)</string>
+    <string name="request">Request Materials</string>
+    <string name="category">Choose Category :</string>
+    <string name="weight">Weight (in Kg) :</string>
+
+    <string name="expectDate">Expected Date :</string>
+    <string name="expectTime">Expected Time :</string>
+    <string name="send">Send Request</string>
+    <string name="confirmAdd">Confirm Address</string>
+
+    <string name="receive">Received Materials Information</string>
+    <string name="total">Total Amount :</string>
+    <string name="pay">Make Payment</string>
+    <string name="confirm">Confirm</string>
+    <string name="materials">Materials Information</string>
+    <string name="amount">Amount :</string>
+    <string name="requested">Requested</string>
+    <string name="received">Received</string>
+    <string name="mapAdd">Map Address</string>
+    <string name="profile">Owner Information</string>
+    <string name="name">Name :</string>
+    <string name="email">Email Address : </string>
+    <string name="postal">Postal Address</string>
+    <string name="cityD">City :</string>
+    <string name="contact">Contact Number :</string>
+    <string name="passwordD">Password :</string>
+    <string name="updateInfo">Update Information</string>
+    <string name="deleteAcc">Delete Account</string>
+    <string name="registerComp">Register Company</string>
 </resources>
 
 
