@@ -64,7 +64,6 @@
         <activity
             android:name=".UserMap"
             android:label="@string/title_activity_user_map" />
-        <activity android:name=".addResource" />
         <activity
             android:name=".LoginUser"
             android:screenOrientation="portrait" />
@@ -99,6 +98,17 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <!--IT19071480-->
+        <activity android:name=".RecyclerMapAddressActivity" />
+        <activity android:name=".RecyclerProfileActivity" />
+        <activity android:name=".RecyclerSearchActivity" />
+        <activity android:name=".RecyclerReceiveActivity" />
+        <activity android:name=".RecyclerRequestActivity" />
+        <activity
+            android:name=".RecyclerHomeActivity"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

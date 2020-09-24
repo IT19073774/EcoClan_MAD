@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/b1"
+    tools:context=".RecyclerHomeActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="158dp"
+        android:layout_height="171dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <Button
+        android:id="@+id/requestBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginBottom="13dp"
+        android:background="@drawable/ic_request"
+        android:onClick="goToRequestPage"
+        app:layout_constraintBottom_toTopOf="@+id/receiveBtn"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/receiveBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/ic_receive"
+        android:onClick="goToReceivePage"
+        app:layout_constraintBottom_toTopOf="@+id/searchBtn"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/searchBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/ic_search"
+        android:onClick="goToSearchPage"
+        app:layout_constraintBottom_toTopOf="@+id/profileBtn"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/profileBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/ic_profile"
+        android:onClick="goToProfilePage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="125dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="96dp"
+        android:text="@string/requestBtn"
+        android:textColor="#000000"
+        android:textSize="60px"
+        app:layout_constraintBaseline_toBaselineOf="@+id/requestBtn"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="124dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="96dp"
+        android:text="@string/receiveBtn"
+        android:textColor="#000000"
+        android:textSize="60px"
+        app:layout_constraintBaseline_toBaselineOf="@+id/receiveBtn"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="124dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="96dp"
+        android:text="@string/searchBtn"
+        android:textColor="#000000"
+        android:textSize="60px"
+        app:layout_constraintBaseline_toBaselineOf="@+id/searchBtn"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="124dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="96dp"
+        android:text="@string/profileBtn"
+        android:textColor="#000000"
+        android:textSize="60px"
+        app:layout_constraintBaseline_toBaselineOf="@+id/profileBtn"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/app_name"
+        android:textColor="#0C7310"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/LoginEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="[ abc@gmail.com ]"
+        android:textColor="#035706"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewApp" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
