@@ -1,42 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgwelcome"
+    android:background="@color/white"
     tools:context=".welcome">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="131dp"
-        android:layout_height="151dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.077"
-        app:srcCompat="@drawable/logo" />
+        android:id="@+id/logoImg"
+        android:layout_width="341dp"
+        android:layout_height="275dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="135dp"
+        android:layout_marginEnd="64dp"
+        app:srcCompat="@drawable/logo"
+        android:contentDescription="@string/todo" />
 
     <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/hind_madurai_semibold"
-        android:text="@string/app_name"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.27" />
+        android:id="@+id/textView3"
+        android:layout_width="185dp"
+        android:layout_height="49dp"
+        android:layout_alignTop="@+id/logoImg"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="215dp"
+        android:layout_marginEnd="64dp"
+        android:text="@string/ecoclan"
+        android:textColor="@color/grey"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="30dp"
         android:fontFamily="@font/hind_madurai_medium"
-        android:text="Welcome!"
+        android:textAlignment="center"
+        android:letterSpacing="0.5"
+        android:text="WELCOME"
         android:textColor="@color/Dark_Gray"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -45,20 +57,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.369" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Please select the user type."
-        android:textColor="@color/Dark_Gray"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.437" />
 
     <View
         android:id="@+id/view"
@@ -76,12 +74,17 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="241dp"
-        android:layout_height="42dp"
+        android:layout_width="400dp"
+        android:layout_height="75dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="584dp"
+        android:layout_marginEnd="-47dp"
         android:background="@drawable/custom_btn_white"
-        android:text="Employee"
         android:onClick="onBtnEmployee"
-        android:textColor="@color/U_Black"
+        android:text="Employee"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,9 +93,14 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="241dp"
-        android:layout_height="42dp"
-        android:background="@drawable/custom_btn_green"
+        android:layout_width="411dp"
+        android:layout_height="75dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-53dp"
+        android:textSize="20sp"
+        android:layout_marginTop="472dp"
+        android:background="@color/colorAccent"
         android:onClick="onBtnUser"
         android:text="User"
         android:textColor="@color/U_White"
@@ -102,4 +110,4 @@
         app:layout_constraintTop_toBottomOf="@+id/view"
         app:layout_constraintVertical_bias="0.262" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
