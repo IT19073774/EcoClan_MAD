@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
         else {*/
-            setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
         /*}*/
     }
     public void openLoginActivity(View v) {

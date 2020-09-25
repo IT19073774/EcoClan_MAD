@@ -4,9 +4,12 @@ package com.example.ecoclan_v2;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,13 +28,22 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -48,10 +60,11 @@ public class UserMap extends FragmentActivity implements OnMapReadyCallback,
     Location mLastLocation;
     GoogleApiClient mGoogleApiClient;
     LocationRequest mLocationRequest;
-    EditText material_name,resource_name;
+    EditText material_name,resource_name, estimate_weight;
     FirebaseFirestore fStore;
     FirebaseAuth mAuth;
     FirebaseUser currentUser;
+    Double Lat, Lng;
     Button setlocationbtn, backbtn ;
 
     String UserID,UserEmail;
@@ -69,7 +82,7 @@ public class UserMap extends FragmentActivity implements OnMapReadyCallback,
 
         material_name = findViewById(R.id.material_name);
         resource_name = findViewById(R.id.resource_name);
-
+        estimate_weight = findViewById(R.id.weight);
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
         UserEmail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
@@ -85,7 +98,9 @@ public class UserMap extends FragmentActivity implements OnMapReadyCallback,
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), userAccount.class));
+                Intent i = new Intent(UserMap.this, userAccount.class);
+                startActivity(i);
+                finish();
             }
         });
 
@@ -93,30 +108,119 @@ public class UserMap extends FragmentActivity implements OnMapReadyCallback,
             public void onClick(View view) {
                 final String material = material_name.getText().toString().trim();
                 final String resource = resource_name.getText().toString().trim();
-
+                final String weight = estimate_weight.getText().toString().trim();
                 setlocationbtn.setVisibility(View.GONE);
 
 
                 LatLng latLng = new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude());
                 mMap.addMarker(new MarkerOptions().position(latLng).title("Pick up here!"));
 
-                Map<String, String> requests = new HashMap<>();
-                requests.put("UserID", UserID.toString());
-                requests.put("Location", latLng.toString());
-                requests.put("Material", material);
-                requests.put("resource", resource);
-                requests.put("giverID", UserEmail.toString());
 
-                fStore.collection("Resources").document().set(requests).addOnCompleteListener(new OnCompleteListener<Void>() {
+                DocumentReference docRef = fStore.collection("Counter").document("Count");
+                docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
-                    public void onComplete(@NonNull Task<Void> task) {
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(), "Pickup requested", Toast.LENGTH_LONG).show();
+                            DocumentSnapshot document = task.getResult();
+                            if (document.exists()) {
+                                Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                                final Integer Count =  Integer.parseInt(document.getData().get("Count").toString());
+                                Lat = mLastLocation.getLatitude();
+                                Lng = mLastLocation.getLongitude();
 
+                                final Map<String, Object> requests = new HashMap<>();
+                                requests.put("UserID", UserID.toString());
+                                requests.put("resourceID", "RES0" + Count);
+                                requests.put("Material", material);
+                                requests.put("resource", resource);
+                                requests.put("giverID", UserEmail.toString());
+                                requests.put("Latitude", Lat);
+                                requests.put("Longitude", Lng);
+                                requests.put("EWeight", Double.parseDouble(weight));
+
+                                final Map<String, Object> requests3 = new HashMap<>();
+                                requests3.put("Count", Count+1);
+                                requests3.put("giverID", "ADMIN");
+
+                                fStore.collection("Resources").document("RES0" + Count).set(requests).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            fStore.collection("Counter").document("Count").set(requests3).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if (task.isSuccessful()) {
+                                                        Toast.makeText(getApplicationContext(), "Pickup requested", Toast.LENGTH_LONG).show();
+                                                    }
+                                                }
+                                            });
+                                        }
+                                    }
+                                });
+                                Intent i = new Intent(UserMap.this, userAccount.class);
+                                startActivity(i);
+                                finish();
+                                return;
+                            } else {
+                                Log.d(TAG, "No such document");
+                            }
+                        } else {
+                            Log.d(TAG, "get failed with ", task.getException());
                         }
                     }
                 });
-                backbtn.setVisibility(View.VISIBLE);
+
+                /*CollectionReference users = fStore.collection("Counter");
+                Query query = users.whereEqualTo("giverID", "ADMIN");
+                query.addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
+
+                        if (e !=null) {}
+                        for (DocumentChange documentChange : documentSnapshots.getDocumentChanges())
+                        {
+                            final Integer Count =  Integer.parseInt(documentChange.getDocument().getData().get("Count").toString());
+                            Log.e(TAG, "Count: "+Count,e);
+                            Lat = mLastLocation.getLatitude();
+                            Lng = mLastLocation.getLongitude();
+
+                            final Map<String, Object> requests = new HashMap<>();
+                            requests.put("UserID", UserID.toString());
+                            requests.put("resourceID", "RES0" + Count);
+                            requests.put("Material", material);
+                            requests.put("resource", resource);
+                            requests.put("giverID", UserEmail.toString());
+                            requests.put("Latitude", Lat);
+                            requests.put("Longitude", Lng);
+
+                            final Map<String, Object> requests3 = new HashMap<>();
+                            requests3.put("Count", Count+1);
+                            requests3.put("giverID", "ADMIN");
+
+                            fStore.collection("Resources").document("RES0" + Count).set(requests).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                                    fStore.collection("Counter").document("Count").set(requests3).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                            if (task.isSuccessful()) {
+                                                                Toast.makeText(getApplicationContext(), "Pickup requested", Toast.LENGTH_LONG).show();
+                                                            }
+                                                        }
+                                                    });
+                                    }
+                                }
+                            });
+                            Intent i = new Intent(UserMap.this, userAccount.class);
+                            startActivity(i);
+                            finish();
+                            return;
+                        }
+                    }
+                });*/
+
+
             }
         });
     }
@@ -188,13 +292,13 @@ public class UserMap extends FragmentActivity implements OnMapReadyCallback,
 //        mCurrLocationMarker = mMap.addMarker(markerOptions);
 //
 //        //move map camera
-      mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-      mMap.animateCamera(CameraUpdateFactory.zoomTo(17));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(17));
 
         //stop location updates
-       if (mGoogleApiClient != null) {
-           LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
-    }
+        if (mGoogleApiClient != null) {
+            LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
+        }
 
     }
 

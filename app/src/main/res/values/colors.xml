@@ -6,13 +6,13 @@
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="grey">#808080</color>
-    <color name="backShadow">#D0000000</color>
+    <color name="backShadow">#19000000</color>
     <color name="red">#F80000</color>
     <color name="transparent">#00808080</color>
     <color name="green">#289700</color>
     <color name="highlight">#FFC000</color>
 
-<!--    IT19056494-->
+    <!--    IT19056494-->
     <color name="U_Black">#000000</color>
     <color name="U_White">#FFFFFF</color>
     <color name="U_Gray">#606060</color>

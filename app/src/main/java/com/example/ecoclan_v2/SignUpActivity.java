@@ -60,7 +60,6 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         List<String> categories = new ArrayList<>();
         categories.add("Collector");
         categories.add("Recycler");
-        categories.add("Thrower");
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categories);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(dataAdapter);

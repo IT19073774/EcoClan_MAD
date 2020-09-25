@@ -101,7 +101,7 @@ public class LoginUser extends AppCompatActivity {
         fgtpass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               final EditText resetMail = new EditText(view.getContext());
+                final EditText resetMail = new EditText(view.getContext());
                 AlertDialog.Builder passRestDialog = new AlertDialog.Builder(view.getContext());
                 passRestDialog.setTitle("Rest Password?");
                 passRestDialog.setMessage("Enter Your Email to Receive Rest Link.  ");
