@@ -14,12 +14,9 @@ public class RecyclerRequestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recycler_request);
     }
 
-    public void goToHomePage(View view){
+    public void goBack(View view){
         Intent intent = new Intent(this, RecyclerHomeActivity.class);
         startActivity(intent);
     }
-    public void goToMapAddressPage(View view){
-        Intent intent = new Intent(this, RecyclerMapAddressActivity.class);
-        startActivity(intent);
-    }
+
 }

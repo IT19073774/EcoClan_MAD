@@ -14,8 +14,18 @@ public class RecyclerProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recycler_profile);
     }
 
-    public void goToHomePage(View view){
+    public void goBack(View view){
         Intent intent = new Intent(this, RecyclerHomeActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToRegisterCompanyPage(View view){
+        Intent intent = new Intent(this, RecyclerRegisterCompanyActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToUpdateUserPage(View view){
+        Intent intent = new Intent(this, RecyclerUpdateUserActivity.class);
         startActivity(intent);
     }
 }

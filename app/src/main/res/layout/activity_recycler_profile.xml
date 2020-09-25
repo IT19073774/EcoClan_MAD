@@ -15,7 +15,7 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo_v3" />
 
     <Button
         android:id="@+id/backBtn"
@@ -24,7 +24,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/ic_back"
-        android:onClick="goToHomePage"
+        android:onClick="goBack"
         android:textAlignment="textStart"
         android:textColor="#035307"
         android:textStyle="bold"
@@ -190,7 +190,8 @@
         android:layout_marginStart="114dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="114dp"
-        android:background="#86B529"
+        android:background="@drawable/roundedcorner"
+        android:onClick="goToUpdateUserPage"
         android:text="@string/updateInfo"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -206,7 +207,8 @@
         android:layout_height="59dp"
         android:layout_marginTop="96dp"
         android:layout_marginBottom="138dp"
-        android:background="#86B529"
+        android:background="@drawable/roundedcorner"
+        android:onClick="goToRegisterCompanyPage"
         android:text="@string/registerComp"
         android:textColor="#000000"
         android:textSize="20sp"
@@ -224,7 +226,7 @@
         android:layout_height="59dp"
         android:layout_marginTop="96dp"
         android:layout_marginBottom="138dp"
-        android:background="#86B529"
+        android:background="@drawable/roundedcorner"
         android:text="@string/deleteAcc"
         android:textColor="#000000"
         android:textSize="20sp"

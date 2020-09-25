@@ -16,7 +16,7 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo_v3" />
 
     <Button
         android:id="@+id/backBtn"
@@ -25,7 +25,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/ic_back"
-        android:onClick="goToHomePage"
+        android:onClick="goBack"
         android:textAlignment="textStart"
         android:textColor="#035307"
         android:textStyle="bold"

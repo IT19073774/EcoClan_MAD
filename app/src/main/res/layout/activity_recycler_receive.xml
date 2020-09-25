@@ -15,7 +15,7 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo_v3" />
 
     <Button
         android:id="@+id/backBtn"
@@ -24,7 +24,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/ic_back"
-        android:onClick="goToHomePage"
+        android:onClick="goBack"
         android:textAlignment="textStart"
         android:textColor="#035307"
         android:textStyle="bold"
@@ -94,7 +94,7 @@
         android:layout_height="30dp"
         android:layout_marginStart="121dp"
         android:layout_marginTop="29dp"
-        android:background="@android:color/holo_green_light"
+        android:background="@drawable/roundedcorner"
         android:text="+"
         android:textAllCaps="false"
         android:textColor="#000000"
@@ -107,7 +107,7 @@
         android:layout_width="32dp"
         android:layout_height="30dp"
         android:layout_marginEnd="114dp"
-        android:background="@android:color/holo_green_light"
+        android:background="@drawable/roundedcorner"
         android:text="-"
         android:textAllCaps="false"
         android:textColor="#000000"
@@ -136,7 +136,7 @@
         android:layout_width="198dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="17dp"
-        android:background="#86B529"
+        android:background="@drawable/roundedcorner"
         android:text="@string/confirm"
         android:textAllCaps="false"
         android:textColor="#000000"
@@ -154,7 +154,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="34dp"
         android:layout_marginEnd="193dp"
-        android:background="#86B529"
+        android:background="@drawable/roundedcorner"
         android:text="@string/pay"
         android:textAllCaps="false"
         android:textColor="#000000"

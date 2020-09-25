@@ -14,7 +14,7 @@ public class RecyclerReceiveActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recycler_receive);
     }
 
-    public void goToHomePage(View view){
+    public void goBack(View view){
         Intent intent = new Intent(this, RecyclerHomeActivity.class);
         startActivity(intent);
     }
