@@ -78,13 +78,13 @@
 
     <EditText
         android:id="@+id/editTextPhone3"
-        android:layout_width="315dp"
-        android:layout_height="35dp"
+        android:layout_width="319dp"
+        android:layout_height="46dp"
         android:layout_marginStart="46dp"
         android:layout_marginTop="13dp"
         android:layout_marginEnd="50dp"
         android:ems="10"
-        android:inputType="phone"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView84" />
@@ -94,19 +94,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="29dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="188dp"
         android:text="@string/registrationNumber"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPhone2" />
 
     <EditText
         android:id="@+id/editTextPhone2"
-        android:layout_width="180dp"
-        android:layout_height="37dp"
+        android:layout_width="182dp"
+        android:layout_height="42dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="45dp"
         android:ems="10"
@@ -117,13 +118,14 @@
     <EditText
         android:id="@+id/editTextTextEmailAddress"
         android:layout_width="320dp"
-        android:layout_height="34dp"
+        android:layout_height="47dp"
         android:layout_marginStart="46dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="45dp"
         android:ems="10"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -159,12 +161,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="15dp"
         android:text="@string/contact"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/editTextPhone2"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button2"
@@ -173,6 +174,7 @@
         android:layout_marginTop="36dp"
         android:layout_marginBottom="118dp"
         android:background="@drawable/roundedcorner"
+        android:onClick="registerCompany"
         android:text="@string/registerComp"
         android:textAllCaps="false"
         android:textColor="#000000"
@@ -193,10 +195,10 @@
         android:layout_marginEnd="47dp"
         android:ems="10"
         android:inputType="textPersonName"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
