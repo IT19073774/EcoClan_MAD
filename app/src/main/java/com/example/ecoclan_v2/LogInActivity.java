@@ -69,13 +69,18 @@ public class LogInActivity extends AppCompatActivity {
                                         {
                                             String type =  documentChange.getDocument().getData().get("Type").toString();
                                             if (type.equals("Collector")) {
-                                                Toast.makeText(getApplicationContext(), "User Successfully SignedIn", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(getApplicationContext(), "Collector Successfully SignedIn", Toast.LENGTH_SHORT).show();
                                                 Intent i = new Intent(LogInActivity.this, HomeActivity.class);
                                                 startActivity(i);
                                                 finish();
                                             } else if (type.equals("Recycler")) {
-                                                Toast.makeText(getApplicationContext(), "User Successfully SignedIn", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(getApplicationContext(), "Recycler Successfully SignedIn", Toast.LENGTH_SHORT).show();
                                                 Intent i = new Intent(LogInActivity.this, RecyclerHomeActivity.class);
+                                                startActivity(i);
+                                                finish();
+                                            } else if (type.equals("Administrator")) {
+                                                Toast.makeText(getApplicationContext(), "Administrator Successfully SignedIn", Toast.LENGTH_SHORT).show();
+                                                Intent i = new Intent(LogInActivity.this, AdminMainActivity.class);
                                                 startActivity(i);
                                                 finish();
                                             } else {
