@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".customer" >
+
+    <ImageButton
+        android:id="@+id/imageButton15"
+        android:layout_width="36dp"
+        android:layout_height="38dp"
+        android:background="#F49696"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.984"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.815"
+        app:srcCompat="@android:drawable/ic_menu_delete" />
+
+    <ImageButton
+        android:id="@+id/imageButton14"
+        android:layout_width="36dp"
+        android:layout_height="38dp"
+        android:background="#F49696"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.984"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.698"
+        app:srcCompat="@android:drawable/ic_menu_delete" />
+
+    <ImageButton
+        android:id="@+id/imageButton13"
+        android:layout_width="36dp"
+        android:layout_height="38dp"
+        android:background="#F49696"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton9"
+        app:layout_constraintHorizontal_bias="0.984"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.607"
+        app:srcCompat="@android:drawable/ic_menu_delete" />
+
+    <ImageButton
+        android:id="@+id/imageButton12"
+        android:layout_width="41dp"
+        android:layout_height="39dp"
+        android:background="#D7F3CC"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.843"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.816"
+        app:srcCompat="@android:drawable/ic_menu_edit" />
+
+    <ImageButton
+        android:id="@+id/imageButton11"
+        android:layout_width="41dp"
+        android:layout_height="39dp"
+        android:background="#D7F3CC"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.843"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.699"
+        app:srcCompat="@android:drawable/ic_menu_edit" />
+
+    <ImageButton
+        android:id="@+id/imageButton10"
+        android:layout_width="41dp"
+        android:layout_height="39dp"
+        android:background="#D7F3CC"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton9"
+        app:layout_constraintHorizontal_bias="0.843"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.618"
+        app:srcCompat="@android:drawable/ic_menu_edit" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="273dp"
+        android:layout_height="417dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName">
+
+
+        <TableRow
+            android:layout_width="402dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:gravity="center_horizontal">
+
+
+        </TableRow>
+
+        <!-- Row 2 with 3 columns -->
+
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="71dp"
+                android:layout_height="76dp"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="ID"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_width="106dp"
+                android:layout_height="76dp"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="NAME"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/TextView04"
+                android:layout_width="126dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="ADDRESS"
+                android:textColor="#000000" />
+
+
+        </TableRow>
+
+        <!-- Row 3 with 3 columns -->
+
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="92dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="P001"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="Nantha. O"
+                android:textColor="#000000" />
+
+            <TextView
+
+                android:layout_width="119dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="37th lane. colombo 6"
+                android:textColor="#000000" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="92dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="P002"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="Ashvinn K"
+                android:textColor="#000000" />
+
+            <TextView
+
+                android:layout_width="119dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="wimukthi mw, wattale"
+                android:textColor="#000000" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="92dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="P003"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="John .D"
+                android:textColor="#000000" />
+
+            <TextView
+
+                android:layout_width="119dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="kottehena"
+                android:textColor="#000000" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="92dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="P004"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="Raquel.LTD"
+                android:textColor="#000000" />
+
+            <TextView
+
+                android:layout_width="119dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="Dehiwela"
+                android:textColor="#000000" />
+
+        </TableRow>
+
+
+    </TableLayout>
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="357dp"
+        android:layout_height="70dp"
+        android:ems="10"
+        android:fontFamily="sans-serif-black"
+        android:inputType="textPersonName"
+        android:text="Customers"
+        android:textColor="#17C611"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.184" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="246dp"
+        android:layout_height="121dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.001"
+        />
+
+    <ImageButton
+        android:id="@+id/imageButton8"
+        android:layout_width="41dp"
+        android:layout_height="39dp"
+        android:background="#D7F3CC"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.843"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.526"
+        app:srcCompat="@android:drawable/ic_menu_edit" />
+
+    <ImageButton
+        android:id="@+id/imageButton9"
+        android:layout_width="36dp"
+        android:layout_height="38dp"
+        android:background="#F49696"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.984"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.526"
+        app:srcCompat="@android:drawable/ic_menu_delete" />
+
+    <ImageButton
+        android:id="@+id/imageButton16"
+        android:layout_width="88dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="88dp"
+        android:background="#FDF9F9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.18"
+        app:srcCompat="?android:attr/actionModeFindDrawable" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

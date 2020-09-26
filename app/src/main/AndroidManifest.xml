@@ -110,6 +110,16 @@
         <activity
             android:name=".RecyclerHomeActivity"
             android:screenOrientation="portrait" />
+
+        <activity android:name=".request_recycle" />
+        <activity android:name=".verification" />
+        <activity android:name=".history" />
+        <activity android:name=".recycle" />
+        <activity android:name=".collector" />
+        <activity android:name=".customer" />
+        <activity android:name=".AdminMainActivity"/>
+
+
     </application>
 
 </manifest>

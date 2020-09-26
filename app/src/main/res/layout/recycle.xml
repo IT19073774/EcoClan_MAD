@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+
+    tools:context=".AdminMainActivity"
+
+    >
+
+    <ImageButton
+        android:id="@+id/imageButton15"
+        android:layout_width="36dp"
+        android:layout_height="38dp"
+        android:background="#F49696"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.984"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.776"
+        app:srcCompat="@android:drawable/ic_menu_delete" />
+
+    <ImageButton
+        android:id="@+id/imageButton14"
+        android:layout_width="36dp"
+        android:layout_height="38dp"
+        android:background="#F49696"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.984"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.685"
+        app:srcCompat="@android:drawable/ic_menu_delete" />
+
+    <ImageButton
+        android:id="@+id/imageButton13"
+        android:layout_width="36dp"
+        android:layout_height="38dp"
+        android:background="#F49696"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.984"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.595"
+        app:srcCompat="@android:drawable/ic_menu_delete" />
+
+    <ImageButton
+        android:id="@+id/imageButton12"
+        android:layout_width="41dp"
+        android:layout_height="39dp"
+        android:background="#D7F3CC"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.848"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.776"
+        app:srcCompat="@android:drawable/ic_menu_edit" />
+
+    <ImageButton
+        android:id="@+id/imageButton11"
+        android:layout_width="41dp"
+        android:layout_height="39dp"
+        android:background="#D7F3CC"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.848"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.684"
+        app:srcCompat="@android:drawable/ic_menu_edit" />
+
+    <ImageButton
+        android:id="@+id/imageButton10"
+        android:layout_width="41dp"
+        android:layout_height="39dp"
+        android:background="#D7F3CC"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.848"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.596"
+        app:srcCompat="@android:drawable/ic_menu_edit" />
+
+    <TableLayout
+        android:id="@+id/tableLayout2"
+        android:layout_width="309dp"
+        android:layout_height="340dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.63">
+
+
+        <TableRow
+            android:layout_width="402dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:gravity="center_horizontal">
+
+
+        </TableRow>
+
+
+
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="71dp"
+                android:layout_height="76dp"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="ID"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_width="106dp"
+                android:layout_height="76dp"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="NAME"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/TextView04"
+                android:layout_width="126dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="ADDRESS"
+                android:textColor="#000000" />
+
+
+        </TableRow>
+
+
+
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="92dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="R001"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="Ecofriend.LTD"
+                android:textColor="#000000" />
+
+            <TextView
+
+                android:layout_width="119dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="37th lane. colombo 6"
+                android:textColor="#000000" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="92dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="C002"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="XYZ.Co"
+                android:textColor="#000000" />
+
+            <TextView
+
+                android:layout_width="119dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="wimukthi mw, wattale"
+                android:textColor="#000000" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="92dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="C003"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="ManLa.LTD"
+                android:textColor="#000000" />
+
+            <TextView
+
+                android:layout_width="119dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="kottehena"
+                android:textColor="#000000" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="92dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="C004"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="Raquel.LTD"
+                android:textColor="#000000" />
+
+            <TextView
+
+                android:layout_width="119dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:padding="20dip"
+                android:text="Dehiwela"
+                android:textColor="#000000" />
+
+        </TableRow>
+
+
+    </TableLayout>
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="357dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="48dp"
+        android:ems="10"
+        android:fontFamily="sans-serif-black"
+        android:inputType="textPersonName"
+        android:text="@string/Recycle_page"
+        android:textColor="#17C611"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.296"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.197" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="246dp"
+        android:layout_height="121dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/logo" />
+
+    <ImageButton
+        android:id="@+id/imageButton8"
+        android:layout_width="41dp"
+        android:layout_height="39dp"
+        android:background="#D7F3CC"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.848"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.508"
+        app:srcCompat="@android:drawable/ic_menu_edit" />
+
+    <ImageButton
+        android:id="@+id/imageButton9"
+        android:layout_width="36dp"
+        android:layout_height="38dp"
+        android:background="#F49696"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.984"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.509"
+        app:srcCompat="@android:drawable/ic_menu_delete" />
+
+    <ImageButton
+        android:id="@+id/imageButton16"
+        android:layout_width="73dp"
+        android:layout_height="47dp"
+        android:background="#FDF9F9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.813"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.191"
+        app:srcCompat="?android:attr/actionModeFindDrawable" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

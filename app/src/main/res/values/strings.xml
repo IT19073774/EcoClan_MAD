@@ -119,6 +119,24 @@
     <string name="registrationNumber">Registration Number :</string>
 
 
+    //IT18211924
+    <string name="verify_acc">Verify an Account</string>
+
+    <string name="Recycle_page">Recycle Company</string>
+    <string name="Customer">Customers</string>
+
+    <string name="popup_view">Recycle Company  has requested for the Registration.</string>
+    <string name="popup_request">Recycle Company has requested for changing details.</string>
+
+    <string name="dashboard">Dashboard</string>
+    <string name="verificataion">Verify an account</string>
+    <string name="collector">collector</string>
+    <string name="recycle">recycle </string>
+    <string name="Request">Requests from recycle company</string>
+    <string name="person">Customer</string>
+    <string name="history">View History</string>
+
+
 </resources>
 
 
