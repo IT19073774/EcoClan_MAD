@@ -107,9 +107,12 @@
     <string name="total">Total Amount :</string>
     <string name="amount">Amount :</string>
     <string name="name">Name :</string>
+    <string name="firstName">First Name :</string>
+    <string name="lastName">Last Name :</string>
     <string name="email">Email Address : </string>
     <string name="postal">Postal Address : </string>
     <string name="cityD">City :</string>
+    <string name="passwordD">Password :</string>
     <string name="contact">Contact Number :</string>
     <string name="companyName">Company Name :</string>
     <string name="companyAddress">Company Address :</string>
