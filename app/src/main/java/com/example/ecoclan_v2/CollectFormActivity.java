@@ -27,9 +27,19 @@ public class CollectFormActivity extends AppCompatActivity {
 
     public void generateInvoice(View v) {
 
-        w =  weightet.getText().toString();;
-        Intent i = new Intent(CollectFormActivity.this,InvoiceActivity.class);
-        i.putExtra("INFO", "COLLECTOR," + resID + "," + w);
+        w =  weightet.getText().toString();
+        if (w.equals("")) {
+            Toast.makeText(getApplicationContext(), "WARNING: Actual Weight Data Entry Required!", Toast.LENGTH_SHORT).show();
+        } else {
+            Intent i = new Intent(CollectFormActivity.this, InvoiceActivity.class);
+            i.putExtra("INFO", "COLLECTOR," + resID + "," + w);
+            startActivity(i);
+        }
+    }
+
+    public void cancel(View v) {
+
+        Intent i = new Intent(CollectFormActivity.this,HomeActivity.class);
         startActivity(i);
     }
 }

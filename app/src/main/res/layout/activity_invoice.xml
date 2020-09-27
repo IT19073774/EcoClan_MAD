@@ -50,26 +50,24 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textView37"
+        android:id="@+id/cusemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="158dp"
         android:layout_marginEnd="50dp"
-        android:text="ashvinnkana@gmail.com"
         android:textSize="17sp"
         android:textStyle="normal" />
 
     <TextView
-        android:id="@+id/textView38"
+        android:id="@+id/cuscontact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="186dp"
         android:layout_marginEnd="51dp"
-        android:text="071 65 22177"
         android:textSize="17sp"
         android:textStyle="normal" />
 
@@ -110,38 +108,35 @@
         android:textStyle="normal" />
 
     <TextView
-        android:id="@+id/textView33"
+        android:id="@+id/resweight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView17"
+        android:layout_below="@+id/rescolrate"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="69dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="50dp"
-        android:text="7.95"
         android:textSize="17sp"
         android:textStyle="normal" />
 
     <TextView
-        android:id="@+id/textView31"
+        android:id="@+id/rescolrate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView17"
+        android:layout_below="@+id/resmaterial"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="22dp"
         android:layout_marginEnd="51dp"
-        android:text="Rs. 30.00"
         android:textSize="17sp"
         android:textStyle="normal" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/resmaterial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="232dp"
         android:layout_marginEnd="50dp"
-        android:text="Metal"
         android:textSize="17sp"
         android:textStyle="normal" />
 
@@ -158,14 +153,13 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textView35"
+        android:id="@+id/total"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView17"
+        android:layout_below="@+id/resweight"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="165dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="51dp"
-        android:text="Rs. 238.50"
         android:textSize="30sp"
         android:textStyle="bold" />
 
@@ -210,7 +204,8 @@
         android:layout_below="@+id/imageView5"
         android:layout_alignParentStart="true"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="79dp"
+        android:onClick="cancel"
+        android:layout_marginTop="95dp"
         android:text="Cancel"
         android:textColor="@color/colorAccent"
         android:textAllCaps="false"
@@ -223,7 +218,7 @@
         android:layout_height="75dp"
         android:layout_below="@+id/imageView5"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="79dp"
+        android:layout_marginTop="95dp"
         android:layout_marginEnd="50dp"
         android:text="Pay"
         android:background="@color/colorAccent"
@@ -232,25 +227,45 @@
         android:textAllCaps="false"
         android:textSize="20sp" />
 
-    <RadioButton
-        android:id="@+id/radioButton"
+
+
+    <RadioGroup
+        android:id="@+id/rg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="667dp"
-        android:layout_marginEnd="218dp"
-        android:text="Credit Card" />
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:orientation='horizontal'
+        android:layout_marginTop="680dp">
 
-    <RadioButton
-        android:id="@+id/radioButton2"
+        <RadioButton
+            android:id="@+id/Credit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Credit Card" />
+
+        <RadioButton
+            android:id="@+id/Cash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80px"
+            android:text="Cash in hand" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="665dp"
-        android:layout_marginEnd="91dp"
-        android:text="Cash in hand" />
 
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="55dp"
+        android:textSize="18sp"
+        android:layout_marginTop="650dp"
+        android:text="Choose Payment Method :" />
 
 </RelativeLayout>

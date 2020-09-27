@@ -37,6 +37,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="95dp"
+
         android:layout_marginTop="321dp"
         android:background="@drawable/design4"
         android:padding="50px"
@@ -89,6 +90,7 @@
         android:layout_width="135dp"
         android:layout_height="66dp"
         android:layout_alignParentStart="true"
+        android:onClick="cancel"
         android:layout_alignParentTop="true"
         android:layout_marginStart="50dp"
         android:layout_marginTop="665dp"

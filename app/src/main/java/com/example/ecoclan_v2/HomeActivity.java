@@ -148,6 +148,16 @@ public class HomeActivity extends FragmentActivity implements OnMapReadyCallback
                     }
                 });
 
+                Button but2=popupView.findViewById(R.id.collect);
+                but2.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent i = new Intent(HomeActivity.this, CollectFormActivity.class);
+                        String res[] = markerTitle.split(" :: ");
+                        i.putExtra("resID", res[0]);
+                        startActivity(i);
+                    }
+                });
+
                 // dismiss the popup window when touched
                 popupView.setOnTouchListener(new View.OnTouchListener() {
                     @Override
