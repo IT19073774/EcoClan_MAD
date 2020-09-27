@@ -31,16 +31,18 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editTextPhone"
-        android:layout_width="127dp"
+        android:id="@+id/weightactual"
+        android:layout_width="140dp"
         android:layout_height="104dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="95dp"
         android:layout_marginTop="321dp"
         android:background="@drawable/design4"
-        android:ems="10"
-        android:inputType="phone" />
+        android:padding="50px"
+        android:textSize="50sp"
+        android:inputType="numberDecimal"
+         />
 
     <TextView
         android:id="@+id/textView13"
@@ -60,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="238dp"
+        android:layout_marginStart="245dp"
         android:layout_marginTop="366dp"
         android:text="Kg"
         android:textColor="@color/black"

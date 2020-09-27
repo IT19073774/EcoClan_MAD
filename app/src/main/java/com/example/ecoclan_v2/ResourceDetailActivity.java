@@ -119,6 +119,7 @@ public class ResourceDetailActivity extends AppCompatActivity {
 
     public void CollectForm(View v) {
         Intent i = new Intent(ResourceDetailActivity.this,CollectFormActivity.class);
+        i.putExtra("resID", titleSplit[0]);
         startActivity(i);
     }
 
