@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -13,22 +14,35 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class RecyclerRequestActivity extends AppCompatActivity {
 
     Button btnDate, btnTime, btnAdd, btnSub;
     TextView date, time;
-    EditText weight;
-    Spinner spinner;
+    EditText weight, category;
     Calendar calendar;
     DatePickerDialog datePickerDialog;
     TimePickerDialog timePickerDialog;
+
+    FirebaseAuth auth = FirebaseAuth.getInstance();
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    String current_user = auth.getCurrentUser().getEmail();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +57,29 @@ public class RecyclerRequestActivity extends AppCompatActivity {
         date = findViewById(R.id.editTextDate);
         time = findViewById(R.id.editTextDate3);
         weight = findViewById(R.id.editTextTextPersonName1);
+        category = findViewById(R.id.editTextTextPersonName7);
 
+    }
+
+    public void request(View view){
+
+        final String cat, wei, da,ti;
+        cat = category.getText().toString();
+        wei = weight.getText().toString();
+        da = date.getText().toString();
+        ti = time.getText().toString();
+
+        Map<String, Object> request = new HashMap<>();
+        request.put("Category", cat);
+        request.put("Weight", wei);
+        request.put("ExpectedDate ", da);
+        request.put("ExpectedTime", ti);
+        request.put("RequesterID ", current_user);
+
+        db.collection("RecyclerRequests").document().set(request);
+        Toast.makeText(getApplicationContext(), "Request sent!", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getApplicationContext(), RecyclerHomeActivity.class);
+        startActivity(intent);
 
     }
 
