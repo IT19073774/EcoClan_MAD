@@ -28,20 +28,20 @@ public class AdminMainActivity extends AppCompatActivity {
         mainGrid = (GridLayout) findViewById(R.id.mainGrid);
 
         customerCard = findViewById(R.id.customerCard);
-     collectorCard = findViewById(R.id.collectorCard);
-     recycleCard= findViewById(R.id.recycleCard) ;
-     verificationCard= findViewById(R.id.verificationCard);
-     requestCard= findViewById(R.id.requestCard);
-     historyCard= findViewById(R.id.historyCard);
+        collectorCard = findViewById(R.id.collectorCard);
+        recycleCard= findViewById(R.id.recycleCard) ;
+        verificationCard= findViewById(R.id.verificationCard);
+        requestCard= findViewById(R.id.requestCard);
+        historyCard= findViewById(R.id.historyCard);
 
 
 
-         setSingleEvent(mainGrid);
+        setSingleEvent(mainGrid);
 
         customerCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AdminMainActivity.this, customer.class));
+                startActivity(new Intent(AdminMainActivity.this, customerN.class));
 
             }
         });

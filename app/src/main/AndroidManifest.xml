@@ -116,7 +116,7 @@
         <activity android:name=".history" />
         <activity android:name=".recycle" />
         <activity android:name=".collector" />
-        <activity android:name=".customer" />
+        <activity android:name=".customerN" />
         <activity android:name=".AdminMainActivity"/>
 
 
