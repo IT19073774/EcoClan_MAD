@@ -57,7 +57,7 @@
     <string name="Lable_email">Email:</string>
     <string name="Lable_phone">Phone:</string>
     <string name="Lable_address">Address:</string>
-    <string name="Lable_AVAILABLE">AVAILABLE</string>
+    <string name="Lable_requestpickup">REQUEST PICKUP</string>
     <string name="Lable_editinfo">This is,</string>
     <string name="Lable_editinfo_updateinfo">Update your user information here.</string>
     <string name="Lable_editinfo_deleteacc">Delete your account.</string>

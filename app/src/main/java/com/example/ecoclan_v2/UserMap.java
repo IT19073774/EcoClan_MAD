@@ -12,8 +12,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -46,11 +49,13 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
-public class UserMap extends FragmentActivity implements OnMapReadyCallback,
+public class UserMap extends FragmentActivity implements OnMapReadyCallback, AdapterView.OnItemSelectedListener,
         LocationListener, GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener{
 
@@ -61,15 +66,25 @@ public class UserMap extends FragmentActivity implements OnMapReadyCallback,
     Location mLastLocation;
     GoogleApiClient mGoogleApiClient;
     LocationRequest mLocationRequest;
-    EditText material_name,resource_name, estimate_weight;
+    EditText resource_name, estimate_weight;
     FirebaseFirestore fStore;
     FirebaseAuth mAuth;
     FirebaseUser currentUser;
     Double Lat, Lng;
     Button setlocationbtn, backbtn ;
+    Spinner materialspinner;
 
-    String UserID,UserEmail;
+    String UserID,UserEmail,material;
 
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+          material = materialspinner.getItemAtPosition(i).toString();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +98,7 @@ public class UserMap extends FragmentActivity implements OnMapReadyCallback,
         mapFragment.getMapAsync(this);
 
 
-        material_name = findViewById(R.id.material_name);
+
         resource_name = findViewById(R.id.resource_name);
         estimate_weight = findViewById(R.id.weight);
         mAuth = FirebaseAuth.getInstance();
@@ -91,6 +106,21 @@ public class UserMap extends FragmentActivity implements OnMapReadyCallback,
         UserEmail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
         UserID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         fStore = FirebaseFirestore.getInstance();
+
+        // Spinner element
+        materialspinner = (Spinner) findViewById(R.id.materialspinner);
+        materialspinner.setOnItemSelectedListener(this);
+        List<String> meterials = new ArrayList<>();
+        meterials.add("Paper");
+        meterials.add("Glass");
+        meterials.add("Plastic");
+        meterials.add("Cloth");
+        meterials.add("Metal");
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, meterials);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        materialspinner.setAdapter(dataAdapter);
+
+
 
 
 
@@ -109,7 +139,7 @@ public class UserMap extends FragmentActivity implements OnMapReadyCallback,
 
         setlocationbtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                final String material = material_name.getText().toString().trim();
+                //final String material = material_name.getText().toString().trim();
                 final String resource = resource_name.getText().toString().trim();
                 final String weight = estimate_weight.getText().toString().trim();
                 setlocationbtn.setVisibility(View.GONE);
@@ -160,10 +190,8 @@ public class UserMap extends FragmentActivity implements OnMapReadyCallback,
                                         }
                                     }
                                 });
-                                Intent i = new Intent(UserMap.this, userAccount.class);
-                                startActivity(i);
-                                finish();
-                                return;
+                                backbtn.setVisibility(View.VISIBLE);
+
                             } else {
                                 Log.d(TAG, "No such document");
                             }
@@ -173,60 +201,10 @@ public class UserMap extends FragmentActivity implements OnMapReadyCallback,
                     }
                 });
 
-                /*CollectionReference users = fStore.collection("Counter");
-                Query query = users.whereEqualTo("giverID", "ADMIN");
-                query.addSnapshotListener(new EventListener<QuerySnapshot>() {
-                    @Override
-                    public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
-
-                        if (e !=null) {}
-                        for (DocumentChange documentChange : documentSnapshots.getDocumentChanges())
-                        {
-                            final Integer Count =  Integer.parseInt(documentChange.getDocument().getData().get("Count").toString());
-                            Log.e(TAG, "Count: "+Count,e);
-                            Lat = mLastLocation.getLatitude();
-                            Lng = mLastLocation.getLongitude();
-
-                            final Map<String, Object> requests = new HashMap<>();
-                            requests.put("UserID", UserID.toString());
-                            requests.put("resourceID", "RES0" + Count);
-                            requests.put("Material", material);
-                            requests.put("resource", resource);
-                            requests.put("giverID", UserEmail.toString());
-                            requests.put("Latitude", Lat);
-                            requests.put("Longitude", Lng);
-
-                            final Map<String, Object> requests3 = new HashMap<>();
-                            requests3.put("Count", Count+1);
-                            requests3.put("giverID", "ADMIN");
-
-                            fStore.collection("Resources").document("RES0" + Count).set(requests).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()) {
-                                                    fStore.collection("Counter").document("Count").set(requests3).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                        @Override
-                                                        public void onComplete(@NonNull Task<Void> task) {
-                                                            if (task.isSuccessful()) {
-                                                                Toast.makeText(getApplicationContext(), "Pickup requested", Toast.LENGTH_LONG).show();
-                                                            }
-                                                        }
-                                                    });
-                                    }
-                                }
-                            });
-                            Intent i = new Intent(UserMap.this, userAccount.class);
-                            startActivity(i);
-                            finish();
-                            return;
-                        }
-                    }
-                });*/
-
-
             }
         });
     }
+
 
 
     @Override
@@ -283,18 +261,7 @@ public class UserMap extends FragmentActivity implements OnMapReadyCallback,
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(17));
 
-//        if (mCurrLocationMarker != null) {
-//            mCurrLocationMarker.remove();
-//        }
-//        //Place current location marker
-//        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-//        MarkerOptions markerOptions = new MarkerOptions();
-//        markerOptions.position(latLng);
-//        markerOptions.title("Your Location");
-//        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
-//        mCurrLocationMarker = mMap.addMarker(markerOptions);
-//
-//        //move map camera
+      //move map camera
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(17));
 

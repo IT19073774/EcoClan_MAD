@@ -30,6 +30,21 @@
 
     </fragment>
 
+    <Spinner
+        android:id="@+id/materialspinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginBottom="593dp"
+        android:background="@drawable/custom_edit_text"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
 
     <EditText
         android:id="@+id/resource_name"
@@ -69,26 +84,6 @@
         android:background="@drawable/custom_edit_text"
         android:hint="Estimate Weight"
         android:inputType="number"
-        android:textSize="16sp" />
-
-    <EditText
-        android:id="@+id/material_name"
-        android:layout_width="wrap_content"
-        android:layout_height="53dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="90dp"
-        android:layout_marginLeft="89dp"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="90dp"
-        android:layout_marginRight="92dp"
-        android:layout_weight="0.5"
-        android:background="@drawable/custom_edit_text"
-        android:hint="Material - ex(Paper)"
-        android:inputType="textPersonName"
         android:textSize="16sp" />
 
 
