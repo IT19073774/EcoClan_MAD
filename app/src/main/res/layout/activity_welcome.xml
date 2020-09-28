@@ -80,7 +80,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="584dp"
         android:layout_marginEnd="-47dp"
-        android:background="@drawable/custom_btn_white"
+        android:background="@drawable/custom_btn_white2"
         android:onClick="onBtnEmployee"
         android:text="Employee"
         android:textColor="@color/colorAccent"

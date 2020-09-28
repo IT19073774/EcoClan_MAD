@@ -5,6 +5,11 @@
     android:background="@drawable/bg_map"
     tools:context=".UserMap">
 
+
+
+
+
+
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
@@ -22,46 +27,9 @@
 
         </LinearLayout>
 
+
     </fragment>
 
-    <Button
-        android:id="@+id/setbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="68dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="99dp"
-        android:layout_marginLeft="99dp"
-        android:layout_marginTop="708dp"
-        android:layout_marginEnd="99dp"
-        android:layout_marginRight="99dp"
-        android:layout_marginBottom="31dp"
-        android:background="@drawable/custom_btn_green"
-        android:text="Set Location"
-        android:textColor="#FFFFFF" />
-
-    <Button
-        android:id="@+id/backbtn1"
-        android:layout_width="wrap_content"
-        android:layout_height="69dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="99dp"
-        android:layout_marginLeft="99dp"
-        android:layout_marginEnd="99dp"
-        android:layout_marginRight="99dp"
-        android:layout_marginBottom="31dp"
-        android:background="@drawable/custom_btn_white"
-        android:text="Back to home"
-        android:textColor="#000000"
-        android:visibility="invisible" />
 
     <EditText
         android:id="@+id/resource_name"
@@ -142,5 +110,46 @@
         android:text="@string/Lable_title_map_"
         android:textColor="@color/U_White"
         android:textSize="18sp" />
+
+
+    <Button
+        android:id="@+id/setbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="59dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="99dp"
+        android:layout_marginTop="641dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginBottom="31dp"
+        android:background="@drawable/custom_btn_green"
+        android:text="Set Location"
+        android:textColor="#FFFFFF"
+        />
+
+    <Button
+        android:id="@+id/backbtn1"
+        android:layout_width="wrap_content"
+        android:layout_height="59dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="99dp"
+        android:layout_marginTop="641dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginBottom="31dp"
+        android:background="@drawable/custom_btn_white"
+        android:text="Back to home"
+        android:textColor="#000000"
+        android:visibility="invisible"
+        />
+
+
+
+
+
 
 </RelativeLayout>
