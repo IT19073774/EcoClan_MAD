@@ -26,7 +26,7 @@ public class LoginUser extends AppCompatActivity {
 
     EditText logemail, logpassword;
     Button loginBtn,admin,RegBtn;
-    TextView  fgtpass;
+    TextView  fgtpass,employeeloginredrict;
     ProgressBar progressBarlogin;
     FirebaseAuth fAuth;
 
@@ -40,16 +40,16 @@ public class LoginUser extends AppCompatActivity {
         loginBtn = findViewById(R.id.loginBtn);
         RegBtn = findViewById(R.id.RegBtn);
         fgtpass = findViewById(R.id.fgtpass);
+        employeeloginredrict =findViewById(R.id.employeeloginredrict);
         progressBarlogin = findViewById(R.id.progressBarlogin);
         fAuth = FirebaseAuth.getInstance();
 
-        admin = findViewById(R.id.admin);
 
-        admin.setOnClickListener(new View.OnClickListener() {
+
+        employeeloginredrict.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Guide_Admin.class));
-                //put  here
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
         });
 

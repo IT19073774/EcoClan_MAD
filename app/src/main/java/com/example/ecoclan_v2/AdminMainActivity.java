@@ -19,6 +19,7 @@ public class AdminMainActivity extends AppCompatActivity {
     CardView verificationCard;
     CardView requestCard;
     CardView historyCard;
+    CardView guidecard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class AdminMainActivity extends AppCompatActivity {
         verificationCard= findViewById(R.id.verificationCard);
         requestCard= findViewById(R.id.requestCard);
         historyCard= findViewById(R.id.historyCard);
-
+        guidecard = findViewById(R.id.guidecard);
 
 
         setSingleEvent(mainGrid);
@@ -81,6 +82,13 @@ public class AdminMainActivity extends AppCompatActivity {
             }
         });
 
+//IT19056494 (adding guide articles)
+        guidecard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(AdminMainActivity.this,Guide_Admin.class));
+            }
+        });
 
     }
 

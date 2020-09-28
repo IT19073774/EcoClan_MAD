@@ -51,7 +51,7 @@ public class Guide_Admin extends AppCompatActivity {
                         if(task.isSuccessful()) {
                             Toast.makeText(getApplicationContext(), "data saved", Toast.LENGTH_SHORT).show();
                             Log.d(TAG,"added!");
-                            startActivity(new Intent(getApplicationContext(), Guide.class));
+                            startActivity(new Intent(getApplicationContext(), AdminMainActivity.class));
                         }
                     }
                 });
