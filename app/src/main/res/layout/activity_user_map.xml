@@ -91,6 +91,7 @@
         android:inputType="textPersonName"
         android:textSize="16sp" />
 
+
     <TextView
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
@@ -101,16 +102,15 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="14dp"
-        android:layout_marginLeft="14dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="128dp"
-        android:layout_marginRight="128dp"
-        android:layout_marginBottom="671dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="131dp"
+        android:layout_marginRight="131dp"
+        android:layout_marginBottom="654dp"
         android:text="@string/Lable_title_map_"
         android:textColor="@color/U_White"
         android:textSize="18sp" />
-
 
     <Button
         android:id="@+id/setbtn"

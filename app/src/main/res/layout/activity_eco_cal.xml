@@ -61,10 +61,10 @@
         app:layout_constraintVertical_bias="0.025"
         app:srcCompat="@drawable/logo" />
 
-    //Organic
+    //Cloth
 
     <TextView
-        android:id="@+id/Organic"
+        android:id="@+id/Cloth"
         android:layout_width="199dp"
         android:layout_height="30dp"
         android:fontFamily="@font/hind_madurai_light"
@@ -87,7 +87,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Organic" />
+        app:layout_constraintTop_toBottomOf="@+id/Cloth" />
 
     <EditText
         android:id="@+id/Clothfill"
@@ -97,14 +97,15 @@
         android:background="@drawable/custom_edit_text"
         android:ems="10"
         android:hint="kg"
-        android:inputType="textEmailAddress"
+        android:inputType="numberDecimal"
         android:paddingLeft="25dip"
         android:textColor="@color/Dark_Gray"
         android:textColorHint="@color/Light_Gray"
         app:layout_constraintBottom_toTopOf="@+id/hr1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.943"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
 
     //Paper
@@ -121,7 +122,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Organic"
+        app:layout_constraintTop_toBottomOf="@+id/Cloth"
         app:layout_constraintVertical_bias="0.076" />
 
     <View
@@ -143,7 +144,7 @@
         android:background="@drawable/custom_edit_text"
         android:ems="10"
         android:hint="kg"
-        android:inputType="textEmailAddress"
+        android:inputType="numberDecimal"
         android:paddingLeft="25dip"
         android:textColor="@color/Dark_Gray"
         android:textColorHint="@color/Light_Gray"
@@ -188,7 +189,7 @@
         android:background="@drawable/custom_edit_text"
         android:ems="10"
         android:hint="kg"
-        android:inputType="textEmailAddress"
+        android:inputType="numberDecimal"
         android:paddingLeft="25dip"
         android:textColor="@color/Dark_Gray"
         android:textColorHint="@color/Light_Gray"
@@ -234,7 +235,7 @@
         android:background="@drawable/custom_edit_text"
         android:ems="10"
         android:hint="kg"
-        android:inputType="textEmailAddress"
+        android:inputType="numberDecimal"
         android:paddingLeft="25dip"
         android:textColor="@color/Dark_Gray"
         android:textColorHint="@color/Light_Gray"
@@ -292,7 +293,7 @@
         android:background="@drawable/custom_edit_text"
         android:ems="10"
         android:hint="kg"
-        android:inputType="textEmailAddress"
+        android:inputType="numberDecimal"
         android:paddingLeft="25dip"
         android:textColor="@color/Dark_Gray"
         android:textColorHint="@color/Light_Gray"
