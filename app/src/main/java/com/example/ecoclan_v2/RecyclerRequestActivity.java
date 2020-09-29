@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -22,6 +23,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -31,14 +34,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class RecyclerRequestActivity extends AppCompatActivity {
+public class RecyclerRequestActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     Button btnDate, btnTime, btnAdd, btnSub;
     TextView date, time;
-    EditText weight, category;
+    EditText weight;
+    String category;
     Calendar calendar;
     DatePickerDialog datePickerDialog;
     TimePickerDialog timePickerDialog;
+    Spinner spin;
 
     FirebaseAuth auth = FirebaseAuth.getInstance();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -57,29 +62,81 @@ public class RecyclerRequestActivity extends AppCompatActivity {
         date = findViewById(R.id.editTextDate);
         time = findViewById(R.id.editTextDate3);
         weight = findViewById(R.id.editTextTextPersonName1);
-        category = findViewById(R.id.editTextTextPersonName7);
+
+        spin = (Spinner) findViewById(R.id.spinner);
+        spin.setOnItemSelectedListener(this);
+        List<String> cat = new ArrayList<>();
+        cat.add("Paper");
+        cat.add("Glass");
+        cat.add("Plastic");
+        cat.add("Cloth");
+        cat.add("Metal");
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, cat);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spin.setAdapter(dataAdapter);
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        category = spin.getItemAtPosition(i).toString();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
 
     public void request(View view){
 
         final String cat, wei, da,ti;
-        cat = category.getText().toString();
         wei = weight.getText().toString();
         da = date.getText().toString();
         ti = time.getText().toString();
 
-        Map<String, Object> request = new HashMap<>();
-        request.put("Category", cat);
-        request.put("Weight", wei);
-        request.put("ExpectedDate ", da);
-        request.put("ExpectedTime", ti);
-        request.put("RequesterID ", current_user);
+        DocumentReference dRef = db.collection("RecyclerCounter").document("Count");
+        dRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot doc = task.getResult();
+                    if (doc.exists()) {
+                        final Integer Count =  Integer.parseInt(doc.getData().get("Count").toString());
 
-        db.collection("RecyclerRequests").document().set(request);
-        Toast.makeText(getApplicationContext(), "Request sent!", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(getApplicationContext(), RecyclerHomeActivity.class);
-        startActivity(intent);
+                        Map<String, Object> request = new HashMap<>();
+                        request.put("Category", category);
+                        request.put("Weight", wei);
+                        request.put("ExpectedDate ", da);
+                        request.put("ExpectedTime", ti);
+                        request.put("RequesterID ", current_user);
+                        request.put("Status ", "PENDING");
+
+                        final Map<String, Object> count = new HashMap<>();
+                        count.put("Count", Count+1);
+                        count.put("GiverID", "RECYCLER");
+
+                        db.collection("RecyclerRequests").document("RES0" + Count).set(request).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    db.collection("RecyclerCounter").document("Count").set(count).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                Toast.makeText(getApplicationContext(), "Request Sent", Toast.LENGTH_LONG).show();
+                                                Intent intent = new Intent(getApplicationContext(), RecyclerHomeActivity.class);
+                                                startActivity(intent);
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        });
+
+                    }
+                }
+            }
+        });
 
     }
 
