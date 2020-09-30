@@ -9,6 +9,20 @@
     tools:context=".MainActivity">
 
     <ImageView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="20dp"
+        android:layout_toEndOf="@+id/textView2"
+        android:contentDescription="@string/todo"
+        android:onClick="back"
+        app:srcCompat="@drawable/back_btn" />
+
+    <ImageView
         android:id="@+id/logoImg"
         android:layout_width="341dp"
         android:layout_height="275dp"

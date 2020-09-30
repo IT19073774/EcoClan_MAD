@@ -126,6 +126,8 @@ public class InvoiceActivity extends AppCompatActivity {
             });
 
 
+        } else {
+            //////////////////////////////////////////////////////////////////
         }
 
 
@@ -138,7 +140,9 @@ public class InvoiceActivity extends AppCompatActivity {
         radioButton= (RadioButton) findViewById(radid);
         if (radioButton.getText().equals("Credit Card")) {
             Intent i = new Intent(InvoiceActivity.this,PaymentActivity.class);
+            i.putExtra("INFO", infosplit[0]+"," + infosplit[1] + "," + amount + "," + infosplit[2]+ "," + material+ "," + reciever+ "," + current_user);
             startActivity(i);
+
         } else {
             //SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss z");
             //String currentDateandTime = sdf.format(new Date());
@@ -156,18 +160,24 @@ public class InvoiceActivity extends AppCompatActivity {
 
             db.collection("Payment").document().set(payment);
             Toast.makeText(getApplicationContext(), "Resource Collected Successfully", Toast.LENGTH_SHORT).show();
-
-            db.collection("Resources").document(infosplit[1])
-                    .delete();
-            Intent i = new Intent(InvoiceActivity.this,HomeActivity.class);
-            startActivity(i);
+            if (infosplit[0].equals("COLLECTOR")) {
+                db.collection("Resources").document(infosplit[1])
+                        .delete();
+                Intent i = new Intent(InvoiceActivity.this, HomeActivity.class);
+                startActivity(i);
+            } else {
+                ////////////////////////////////
+            }
         }
 
     }
 
     public void cancel(View v) {
-
-        Intent i = new Intent(InvoiceActivity.this,HomeActivity.class);
-        startActivity(i);
+        if (infosplit[0].equals("COLLECTOR")) {
+            Intent i = new Intent(InvoiceActivity.this, HomeActivity.class);
+            startActivity(i);
+        } else {
+            /////////////////////////////////////////
+        }
     }
 }

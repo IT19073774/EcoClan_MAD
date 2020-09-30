@@ -98,14 +98,14 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textView41"
+        android:id="@+id/paymentamount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="106dp"
         android:layout_marginEnd="50dp"
-        android:text="Rs.238.50"
+        android:text=""
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -140,6 +140,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="79dp"
         android:text="Cancel"
+        android:onClick="cancel"
         android:textColor="@color/colorAccent"
         android:textAllCaps="false"
         android:background="@drawable/design1"
@@ -161,7 +162,7 @@
         android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/nameoncard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView42"
@@ -176,7 +177,7 @@
         android:padding="5dp" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/cardnumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView42"
@@ -187,7 +188,7 @@
         android:layout_marginEnd="31dp"
         android:background="@drawable/design4"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:padding="5dp" />
 
     <TextView
@@ -215,7 +216,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/expmonth"
         android:layout_width="99dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView42"
@@ -224,11 +225,11 @@
         android:layout_marginTop="206dp"
         android:background="@drawable/design4"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:padding="5dp" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/expyear"
         android:layout_width="99dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView42"
@@ -237,11 +238,11 @@
         android:layout_marginTop="206dp"
         android:background="@drawable/design4"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:padding="5dp" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/cvc"
         android:layout_width="99dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView42"
@@ -250,7 +251,7 @@
         android:layout_marginTop="271dp"
         android:background="@drawable/design4"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:padding="5dp" />
 
     <TextView
