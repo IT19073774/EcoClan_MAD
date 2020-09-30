@@ -32,7 +32,7 @@ public class ecoCal extends AppCompatActivity {
         icon4 = findViewById(R.id.icon4);
         icon6 = findViewById(R.id.icon6);
         fStore = FirebaseFirestore.getInstance();
-        //iconsssss
+
         //icons
         icon4.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,64 +68,67 @@ public class ecoCal extends AppCompatActivity {
 
     //calculate button
     public void onBtnTotal(View v){
+
         EditText Plasticfill,Clothfill,Metalfill,Glassfill,Paperfill;
         TextView total;
+        total = findViewById(R.id.total);
 
-        double P,O,M,G,Pap = 0;
+        double UserInput_Plastic,UserInput_Cloth,UserInput_Metal,UserInput_Glass,UserInput_Paper = 0;
 
 
         Plasticfill = findViewById(R.id.Plasticfill);
         if(Plasticfill.getText().toString().isEmpty()){
-            P = 0;
+            UserInput_Plastic = 0;
         }else {
-            P = Float.parseFloat(Plasticfill.getText().toString());
+            UserInput_Plastic = Float.parseFloat(Plasticfill.getText().toString());
         }
 
         Clothfill = findViewById(R.id.Clothfill);
         if(Clothfill.getText().toString().isEmpty()){
-            O = 0;
+            UserInput_Cloth = 0;
         }else {
-            O = Float.parseFloat(Clothfill.getText().toString());
+            UserInput_Cloth = Float.parseFloat(Clothfill.getText().toString());
         }
 
         Metalfill = findViewById(R.id.Metalfill);
         if(Metalfill.getText().toString().isEmpty()){
-            M = 0;
+            UserInput_Metal = 0;
         }else {
-            M = Float.parseFloat(Metalfill.getText().toString());
+            UserInput_Metal = Float.parseFloat(Metalfill.getText().toString());
         }
 
         Glassfill = findViewById(R.id.Glassfill);
         if(Glassfill.getText().toString().isEmpty()){
-            G = 0;
+            UserInput_Glass = 0;
         }else {
-            G = Float.parseFloat(Glassfill.getText().toString());
+            UserInput_Glass = Float.parseFloat(Glassfill.getText().toString());
         }
 
         Paperfill = findViewById(R.id.Paperfill);
         if (Paperfill.getText().toString().isEmpty()){
-            Pap = 0;
+            UserInput_Paper = 0;
         }else {
-            Pap = Float.parseFloat(Paperfill.getText().toString());
+            UserInput_Paper = Float.parseFloat(Paperfill.getText().toString());
         }
 
-        total = findViewById(R.id.total);
+        double Final_SUM = ecoCal_sum(Plastic,Cloth,Metal,Glass,Paper,UserInput_Plastic,UserInput_Cloth,UserInput_Metal,UserInput_Glass,UserInput_Paper);
+        total.setText(Double.toString(Final_SUM));
 
-        //prices
-        double Plasticsum = Plastic*P;
-        double Clothsum = Cloth*O;
-        double Metalsum = Metal*M;
-        double Glasssum = Glass*G;
-        double Papersum = Paper*Pap;
+    }
+
+    public static double ecoCal_sum(double Plastic,double Cloth,double Metal,double Glass,double Paper,double UserInput_Plastic,double UserInput_Cloth,double UserInput_Metal,double UserInput_Glass,double UserInput_Paper){
+
+
+        double Plasticsum = Plastic*UserInput_Plastic;
+        double Clothsum = Cloth*UserInput_Cloth;
+        double Metalsum = Metal*UserInput_Metal;
+        double Glasssum = Glass*UserInput_Glass;
+        double Papersum = Paper*UserInput_Paper;
 
         //calculation
 
         double sum =  Plasticsum +  Clothsum +  Metalsum + Glasssum +  Papersum;
-        total.setText(Double.toString(sum));
-
-
-
+        return (sum);
     }
-
 
 }
