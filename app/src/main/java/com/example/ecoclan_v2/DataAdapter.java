@@ -1,5 +1,6 @@
 package com.example.ecoclan_v2;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,11 +26,12 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     public DataAdapter(List<DataList> ListG){
         this.ListG = ListG;
     }
+    ProgressDialog dialog;
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
+        dialog =new ProgressDialog(parent.getContext());
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.request_list_item, parent, false);
         return new ViewHolder(view);
     }
@@ -47,6 +49,8 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
         holder.agree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
+                dialog.setMessage("Creating Agreement ... Please Wait!");
+                dialog.show();
                 DocumentReference docref = FirebaseFirestore.getInstance().collection("RecyclerRequests").document(ListG.get(position).getReqID());
                 docref
                         .update("Status ", "AGREED",
@@ -55,13 +59,14 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
                             @Override
                             public void onSuccess(Void aVoid) {
                                 Log.e("TAG", "DocumentSnapshot successfully updated!");
-
+                                dialog.hide();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 Log.e("TAG", "Error updating document", e);
+                                dialog.hide();
                             }
                         });
             }

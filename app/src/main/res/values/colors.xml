@@ -20,6 +20,7 @@
     <color name="Dark_Gray">#1B1B1B</color>
     <color name="Dark_Green">#1E7503</color>
     <color name="Light_Green">#029C35</color>
+    <color name="blurgrey">#DBDBDB</color>
 
 
 </resources>
