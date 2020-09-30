@@ -293,38 +293,8 @@ public class HomeActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     public void ItemLog (View v) {
-        // inflate the layout of the popup window
-        LayoutInflater inflater = (LayoutInflater)
-                getSystemService(LAYOUT_INFLATER_SERVICE);
-        View popupView = inflater.inflate(R.layout.activity_collected_items, null);
-
-        // create the popup window
-        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
-        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
-        boolean focusable = true; // lets taps outside the popup also dismiss it
-        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
-
-        // show the popup window
-        // which view you pass in doesn't matter, it is only used for the window tolken
-
-        popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
-
-        Button but=popupView.findViewById(R.id.sellBtn);
-        but.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent i = new Intent(HomeActivity.this, SellResourceActivity.class);
-                startActivity(i);
-            }
-        });
-
-        // dismiss the popup window when touched
-        popupView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                popupWindow.dismiss();
-                return true;
-            }
-        });
+        Intent i = new Intent (HomeActivity.this, SellResourceActivity.class);
+        startActivity(i);
     }
 
     public void infoLog (View v) {
