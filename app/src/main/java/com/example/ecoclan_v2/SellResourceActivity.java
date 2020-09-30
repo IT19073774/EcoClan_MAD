@@ -2,7 +2,9 @@ package com.example.ecoclan_v2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -50,8 +52,63 @@ public class SellResourceActivity extends AppCompatActivity {
         RecyclerView.LayoutManager manager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(dataAdapter);
-
+        Log.e(TAG, "STARTED READING.");
         fStore.collection("RecyclerRequests")
+                .whereEqualTo("Status ", "PENDING")
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value,
+                                        @Nullable FirebaseFirestoreException e) {
+
+                        if (e != null) {
+                            Toast.makeText(SellResourceActivity.this, "EMPTY", Toast.LENGTH_SHORT).show();
+                            Log.e(TAG, "Listen failed", e);
+                            return;
+                        }
+
+                        dataList.removeAll(dataList);
+                        dataAdapter.notifyItemRangeRemoved(0,dataAdapter.getItemCount());
+                        for (QueryDocumentSnapshot document : value) {
+                            if (document.exists()) {
+                                final DataList data = new DataList();
+                                data.setReqID(document.getId());
+                                Log.e(TAG, "DocumentSnapshot data: " + document.getData());
+                                data.setCategory(document.getData().get("Weight").toString() + "Kg - " +document.getData().get("Category").toString());
+                                data.setDate(document.getData().get("ExpectedDate ").toString());
+
+                                DocumentReference docRef = fStore.collection("Companies").document(document.getData().get("RequesterID ").toString());
+                                docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                        if (task.isSuccessful()) {
+                                            DocumentSnapshot document2 = task.getResult();
+                                            if (document2.exists()) {
+                                                Log.d(TAG, "DocumentSnapshot data: " + document2.getData());
+                                                data.setAddress(document2.getData().get("Address").toString());
+                                                data.setName(document2.getData().get("Name").toString());
+                                                data.setContact(document2.getData().get("Contact").toString());
+
+                                                dataList.add(data);
+                                                dataAdapter.notifyDataSetChanged();
+                                            } else {
+                                                Log.d(TAG, "No such document");
+                                            }
+                                        } else {
+                                            Log.d(TAG, "get failed with ", task.getException());
+                                        }
+                                    }
+                                });
+                            }
+                        }
+
+                    }
+                });
+
+        Log.e(TAG, "FINISHED READING.");
+
+        /*fStore.collection("RecyclerRequests")
+                .whereEqualTo("Status ", "PENDING")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -91,7 +148,7 @@ public class SellResourceActivity extends AppCompatActivity {
                             Log.e(TAG, "Error getting documents: ", task.getException());
                         }
                     }
-                });
+                });*/
 
         /*fStore.collection("guide").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
@@ -115,9 +172,8 @@ public class SellResourceActivity extends AppCompatActivity {
         });*/
     }
 
-    public void PublishSellForm(View view) {
+    public void back(View view) {
         Intent i = new Intent(SellResourceActivity.this,HomeActivity.class);
-        Toast.makeText(getApplicationContext(), "Published Sell Request form to the Recycling Organization!", Toast.LENGTH_SHORT).show();
         startActivity(i);
     }
 

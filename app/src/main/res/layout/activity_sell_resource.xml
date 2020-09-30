@@ -25,16 +25,28 @@
 
         <TextView
             android:id="@+id/textView27"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="14dp"
             android:textStyle="bold"
-            android:layout_marginTop="29dp"
-            android:text="Find An Agreement to Sell Resources :"
+            android:layout_marginTop="15dp"
+            android:text="Find An Agreement And Sell Resources "
             android:textColor="@color/white"
             android:textSize="21dp" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="320dp"
+            android:textStyle="bold"
+            android:onClick="back"
+            android:layout_marginTop="15dp"
+            app:srcCompat="@drawable/ic_back2" />
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
