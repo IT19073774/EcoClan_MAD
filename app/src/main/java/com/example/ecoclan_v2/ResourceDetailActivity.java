@@ -63,7 +63,7 @@ public class ResourceDetailActivity extends AppCompatActivity {
                         reslat.setText(document.getData().get("Latitude").toString());
                         reslng.setText(document.getData().get("Longitude").toString());
                         restype.setText(document.getData().get("Material").toString());
-                        resesti.setText(document.getData().get("EWeight").toString() + ".0 Kg");
+                        resesti.setText(document.getData().get("EWeight").toString() + " Kg");
 
                         DocumentReference docRef = db.collection("CollectorRates").document("material");
                         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
