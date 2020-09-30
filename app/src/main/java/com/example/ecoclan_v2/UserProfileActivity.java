@@ -21,16 +21,24 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.type.DateTime;
 
+import android.os.Parcelable;
+
+import java.text.DateFormat;
 import java.util.ArrayList;
+
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Nullable;
@@ -43,6 +51,8 @@ public class UserProfileActivity extends AppCompatActivity {
     String currentUser;
     private List<DataList> dataList;
     private AgreementDataAdapter agreementdataAdapter;
+    private List<TransactionList> transactionList;
+    private TransactionAdapter transactionDataAdapter;
     RecyclerView recyclerView;
     Button agreement, transaction;
 
@@ -63,6 +73,8 @@ public class UserProfileActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         dataList = new ArrayList<>();
         agreementdataAdapter = new AgreementDataAdapter(dataList);
+        transactionList = new ArrayList<>();
+        transactionDataAdapter = new TransactionAdapter(transactionList);
         currentUser = auth.getCurrentUser().getEmail();
 
         DocumentReference docRef = db.collection("Users").document(currentUser);
@@ -86,6 +98,8 @@ public class UserProfileActivity extends AppCompatActivity {
                 }
             }
         });
+
+        transactionView();
 
         agreement.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,8 +126,77 @@ public class UserProfileActivity extends AppCompatActivity {
                 drawable = ResourcesCompat.getDrawable(res, R.drawable.design5, null);
                 agreement.setBackground(drawable);
                 agreement.setTextColor(res.getColor(R.color.blurgrey));
+                transactionView();
             }
         });
+
+    }
+
+    public void transactionView() {
+        transactionList.removeAll(transactionList);
+        transactionDataAdapter.notifyItemRangeRemoved(0,transactionDataAdapter.getItemCount());
+        recyclerView = findViewById(R.id.mainList);
+
+
+        recyclerView.setHasFixedSize(true);
+        RecyclerView.LayoutManager manager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(manager);
+        recyclerView.setAdapter(transactionDataAdapter);
+        Log.e(TAG, "STARTED READING.");
+
+        db.collection("Payment")
+                .orderBy("Date", Query.Direction.DESCENDING)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                ////////////
+                                if (document.getData().get("PaymentBy").toString().equals(currentUser)) {
+
+                                    final TransactionList data = new TransactionList();
+                                    data.setEmail(document.getData().get("PaymentTo").toString());
+                                    data.setAmount("- Rs." + document.getData().get("Amount").toString());
+                                    data.setColor("red");
+                                    data.setType(document.getData().get("Type").toString());
+                                    data.setMaterial(document.getData().get("Weight").toString() + "Kg - " + document.getData().get("Material").toString());
+                                    Timestamp t = (Timestamp) document.getData().get("Date");
+                                    Date date = t.toDate();
+                                    android.text.format.DateFormat df = new android.text.format.DateFormat();
+                                    data.setDate(df.format("yyyy-MM-dd hh:mm:ss a", date).toString());
+                                    Log.e(TAG, "onComplete: " + df.format("yyyy-MM-dd hh:mm:ss a", date));
+
+                                    transactionList.add(data);
+                                    transactionDataAdapter.notifyDataSetChanged();
+                                }
+                                else if (document.getData().get("PaymentTo").toString().equals(currentUser)) {
+
+                                    final TransactionList data = new TransactionList();
+                                    data.setEmail(document.getData().get("PaymentBy").toString());
+                                    data.setAmount("Rs." + document.getData().get("Amount").toString());
+                                    data.setColor("green");
+                                    data.setType(document.getData().get("Type").toString());
+                                    data.setMaterial(document.getData().get("Weight").toString() + "Kg - " + document.getData().get("Material").toString());
+                                    Timestamp t = (Timestamp) document.getData().get("Date");
+                                    Date date = t.toDate();
+                                    android.text.format.DateFormat df = new android.text.format.DateFormat();
+                                    data.setDate(df.format("yyyy-MM-dd hh:mm:ss a", date).toString());
+                                    Log.e(TAG, "onComplete: " + df.format("yyyy-MM-dd hh:mm:ss a", date));
+
+                                    transactionList.add(data);
+                                    transactionDataAdapter.notifyDataSetChanged();
+                                }
+                            }
+                            Log.e(TAG, "onComplete: " + transactionList);
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+
+
+        Log.e(TAG, "FINISHED READING.");
 
     }
 
