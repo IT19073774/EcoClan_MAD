@@ -106,12 +106,14 @@ public class ExampleUnitTest {
         assertEquals(10685.0,result,0.001);
     }
 
-    //If user inputs multiple inputs
+    //If user inputs multiple inputs with decimals
     @Test
     public void DecimalsInputsCalculation_isCorrect(){
         double result = ecoCal.ecoCal_sum(100,120,200,145,60,0.2,10.2,2.8,0,2.8);
         assertEquals(1971.99,result,0.01);
     }
+
+
 
 
 }

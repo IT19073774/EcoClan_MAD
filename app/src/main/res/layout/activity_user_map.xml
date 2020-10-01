@@ -43,7 +43,7 @@
         android:layout_marginTop="85dp"
         android:layout_marginEnd="90dp"
         android:layout_marginBottom="716dp"
-        android:background="@drawable/custom_edit_text"
+        android:background="@drawable/custom_edit_text2"
         android:paddingLeft="10dp"
         android:paddingRight="10dp" />
 
