@@ -11,6 +11,47 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
 
+    //IT19073774
+    //Unit test for Customer Estimated Cost View
+    private ResourceDetailActivity RDActivity;
+    public void setRDActivity(){
+        RDActivity = new ResourceDetailActivity();
+    }
+
+    //If both parameter Zero
+    @Test
+    public void AllZerosCalculation_isCorrect(){
+        double result = RDActivity.calEstimateCost(0.0,0.0);
+        assertEquals(0.0,result,0.001);
+    }
+
+    //If User have input Estimate weight as Zero
+    @Test
+    public void EweightZeroCalculation_isCorrect(){
+        double result = RDActivity.calEstimateCost(200.0,0.0);
+        assertEquals(0.0,result,0.001);
+    }
+
+    //If User have input a one digit whole number estimate weight
+    @Test
+    public void EweightOneDigitWholeCalculation_isCorrect(){
+        double result = RDActivity.calEstimateCost(200.0,3.0);
+        assertEquals(600.0,result,0.001);
+    }
+
+    //If User have input a two digit whole number estimate weight
+    @Test
+    public void EweightTwoDigitWholeCalculation_isCorrect(){
+        double result = RDActivity.calEstimateCost(200.0,12.0);
+        assertEquals(2400.0,result,0.001);
+    }
+
+    //If User have input a estimate weight with decimal points
+    @Test
+    public void EweightDecimalPointCalculation_isCorrect(){
+        double result = RDActivity.calEstimateCost(200.0,8.35);
+        assertEquals(1670.0,result,0.001);
+    }
 
     //IT19056494
     //Unit test for ecoCal
