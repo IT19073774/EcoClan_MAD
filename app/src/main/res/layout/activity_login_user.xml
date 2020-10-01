@@ -53,7 +53,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logpassword"
-        app:layout_constraintVertical_bias="0.896" />
+        app:layout_constraintVertical_bias="0.703" />
 
     <EditText
         android:id="@+id/logpassword"
@@ -71,7 +71,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logemail"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.081" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -138,7 +138,7 @@
         android:id="@+id/RegBtn"
         android:layout_width="166dp"
         android:layout_height="42dp"
-        android:layout_marginBottom="124dp"
+        android:layout_marginBottom="188dp"
         android:background="@drawable/custom_btn_white"
         android:onClick="onBtnReg"
         android:text="@string/btn_register"
@@ -156,8 +156,9 @@
         android:background="@color/Light_Gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.739" />
+        app:layout_constraintVertical_bias="0.718" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
