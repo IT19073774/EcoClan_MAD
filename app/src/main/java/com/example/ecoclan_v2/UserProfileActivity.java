@@ -1,18 +1,22 @@
 package com.example.ecoclan_v2;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
@@ -20,6 +24,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
@@ -267,4 +273,45 @@ public class UserProfileActivity extends AppCompatActivity {
         Intent i = new Intent(UserProfileActivity.this,HomeActivity.class);
         startActivity(i);
     }
+
+    public void resetpsw(View view) {
+        final EditText resetMail = new EditText(view.getContext());
+
+        AlertDialog.Builder passRestDialog = new AlertDialog.Builder(view.getContext());
+        passRestDialog.setTitle("Rest Password?");
+        passRestDialog.setMessage("Enter Your Email to Receive Rest Link.  ");
+        passRestDialog.setView(resetMail);
+
+
+        passRestDialog.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //get Email and send reset link
+
+                String mail = resetMail.getText().toString();
+                auth.sendPasswordResetEmail(mail).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(UserProfileActivity.this, "Rest Link Sent To Your Email.", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(UserProfileActivity.this, "Error! Try Again" + e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+            }
+        });
+        passRestDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //close the dialog
+
+            }
+        });
+
+        passRestDialog.create().show();
+    }
+
 }

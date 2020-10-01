@@ -130,7 +130,7 @@
         android:padding="20dp"
         android:layout_marginTop="240dp"
         android:elevation="10dp"
-
+        android:onClick="resetpsw"
         android:background="@color/colorAccent"
         android:textColor="@color/white"
         android:layout_marginEnd="40dp"
