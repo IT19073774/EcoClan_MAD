@@ -145,6 +145,7 @@
         android:textColor="@color/white"
         android:elevation="10dp"
         android:background="#B60808"
+        android:onClick="deleteUser"
         android:padding="20dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="240dp"

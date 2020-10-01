@@ -314,4 +314,49 @@ public class UserProfileActivity extends AppCompatActivity {
         passRestDialog.create().show();
     }
 
+
+    public void deleteUser(View view) {
+
+
+        AlertDialog.Builder passRestDialog = new AlertDialog.Builder(view.getContext());
+        passRestDialog.setTitle("Deactivate Account");
+        passRestDialog.setMessage("Are you sure that you want to delete your account permanently?");
+
+
+
+        passRestDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                db.collection("Users").document(currentUser)
+                        .delete()
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Log.d(TAG, "DocumentSnapshot successfully deleted!");
+                                startActivity(new Intent(UserProfileActivity.this, MainActivity.class));
+                                auth.getCurrentUser().delete();
+                                Toast.makeText(getApplicationContext(), "User Profile Successfully Deleted", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w(TAG, "Error deleting document", e);
+                            }
+                        });
+
+
+            }
+        });
+        passRestDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //close the dialog
+
+            }
+        });
+
+        passRestDialog.create().show();
+    }
+
 }
