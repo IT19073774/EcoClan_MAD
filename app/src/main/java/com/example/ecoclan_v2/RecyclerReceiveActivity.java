@@ -8,11 +8,16 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -32,6 +37,7 @@ public class RecyclerReceiveActivity extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseFirestore db;
     RecyclerView recyclerView;
+    String currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +48,7 @@ public class RecyclerReceiveActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+        currentUser = auth.getCurrentUser().getEmail();
 
         recyclerView = findViewById(R.id.mainList);
         dataList = new ArrayList<>();
@@ -53,22 +60,14 @@ public class RecyclerReceiveActivity extends AppCompatActivity {
 
         db.collection("RecyclerRequests")
                 .whereEqualTo("Status ", "AGREED")
-                .addSnapshotListener(new EventListener<QuerySnapshot>() {
-
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
-                    public void onEvent(@Nullable QuerySnapshot value,
-                                        @Nullable FirebaseFirestoreException e) {
-
-                        if (e != null) {
-                            Toast.makeText(RecyclerReceiveActivity.this, "EMPTY", Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-
-                        dataList.removeAll(dataList);
-                        dataAdapter.notifyItemRangeRemoved(0, dataAdapter.getItemCount());
-
-                        for (QueryDocumentSnapshot document : value) {
-                            if (document.exists()) {
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                ////////////
+                                if (document.getData().get("RequesterID ").toString().equals(currentUser)) {
                                     final DataList data = new DataList();
                                     data.setReqID(document.getId());
                                     data.setCategory(document.getData().get("Category").toString());
@@ -78,12 +77,14 @@ public class RecyclerReceiveActivity extends AppCompatActivity {
                                     data.setCollectorEmail(document.getData().get("Collector").toString());
                                     dataList.add(data);
                                     dataAdapter.notifyDataSetChanged();
-
+                                }
                             }
+                        } else {
+                            Log.d("TAG", "Error getting documents: ", task.getException());
                         }
-
                     }
                 });
+
     }
 
     public void goBack(View view){

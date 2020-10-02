@@ -1,13 +1,22 @@
 package com.example.ecoclan_v2;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 
@@ -35,6 +44,15 @@ public class RecyclerDataAdapter extends RecyclerView.Adapter<RecyclerDataAdapte
         holder.ema.setText(ListG.get(position).getCollectorEmail());
         holder.wei.setText(ListG.get(position).getWeight());
 
+        holder.receive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                Intent i = new Intent(v.getContext(), InvoiceActivity.class);
+                i.putExtra("INFO", "RECYCLER," + ListG.get(position).getReqID());
+                v.getContext().startActivity(i);
+            }
+        });
+
 
     }
 
@@ -47,7 +65,7 @@ public class RecyclerDataAdapter extends RecyclerView.Adapter<RecyclerDataAdapte
         View mView;
 
         public TextView id, cat, wei, dat, tim, ema;
-
+        public Button receive;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             mView = itemView;
@@ -59,6 +77,7 @@ public class RecyclerDataAdapter extends RecyclerView.Adapter<RecyclerDataAdapte
             tim = (TextView) mView.findViewById(R.id.date);
             ema = (TextView) mView.findViewById(R.id.id);
 
+            receive = (Button) mView.findViewById(R.id.button9);
         }
     }
 }

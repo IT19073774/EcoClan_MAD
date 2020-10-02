@@ -126,8 +126,74 @@ public class InvoiceActivity extends AppCompatActivity {
             });
 
 
-        } else {
-            //////////////////////////////////////////////////////////////////
+        }
+
+        else {
+            DocumentReference docRef = db.collection("RecyclerRequests").document(infosplit[1]);
+            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                    if (task.isSuccessful()) {
+                        final DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+
+                            senemail.setText(document.getData().get("Collector").toString());
+                            material = document.getData().get("Category").toString();
+                            resmaterial.setText(material);
+
+
+                            DocumentReference docRef = db.collection("RecyclerRates").document("lmeObPqMsxVzO9XrPyRe");
+                            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        DocumentSnapshot document2 = task.getResult();
+                                        if (document2.exists()) {
+                                            rescolrate.setText("Rs. " + document2.getData().get(material).toString());
+                                            Double col = Double.parseDouble(document2.getData().get(material).toString());
+
+                                            Double weigt = Double.parseDouble(document.getData().get("Weight").toString());
+
+                                            resweight.setText(String.valueOf(weigt));
+                                            Double costcal = col * weigt;
+                                            amount = costcal.toString();
+                                            total.setText("Rs. " + costcal.toString());
+
+                                        } else {
+                                            Log.d(TAG, "No such document");
+                                        }
+                                    } else {
+                                        Log.d(TAG, "get failed with ", task.getException());
+                                    }
+                                }
+                            });
+
+                            DocumentReference docRef3 = db.collection("Users").document(document.getData().get("Collector").toString());
+                            docRef3.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        DocumentSnapshot document3 = task.getResult();
+                                        if (document3.exists()) {
+                                            sencontact.setText(document3.getData().get("Contact").toString());
+                                        } else {
+                                            Log.d(TAG, "No such document");
+                                        }
+                                    } else {
+                                        Log.d(TAG, "get failed with ", task.getException());
+                                    }
+                                }
+                            });
+
+                        } else {
+                            Log.d(TAG, "No such document");
+                        }
+                    } else {
+                        Log.d(TAG, "get failed with ", task.getException());
+                    }
+                }
+            });
         }
 
 
@@ -177,7 +243,8 @@ public class InvoiceActivity extends AppCompatActivity {
             Intent i = new Intent(InvoiceActivity.this, HomeActivity.class);
             startActivity(i);
         } else {
-            /////////////////////////////////////////
+            Intent i = new Intent(InvoiceActivity.this, RecyclerReceiveActivity.class);
+            startActivity(i);
         }
     }
 }
