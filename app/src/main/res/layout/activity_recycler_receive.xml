@@ -49,8 +49,13 @@
         android:id="@+id/mainList"
         android:layout_width="409dp"
         android:layout_height="622dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="108dp" />
+        android:layout_marginTop="55dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
