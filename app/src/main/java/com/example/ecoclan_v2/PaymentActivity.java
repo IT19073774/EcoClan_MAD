@@ -96,7 +96,6 @@ public class PaymentActivity extends AppCompatActivity {
             payment.put("Date", currentDateandTime);
             payment.put("Type", "CREDIT CARD");
 
-
             db.collection("Payment").document().set(payment);
             Toast.makeText(getApplicationContext(), "Resource Collected Successfully", Toast.LENGTH_SHORT).show();
             if (infosplit[0].equals("COLLECTOR")) {
@@ -105,7 +104,11 @@ public class PaymentActivity extends AppCompatActivity {
                 Intent i = new Intent(PaymentActivity.this, HomeActivity.class);
                 startActivity(i);
             } else {
-                ////////////////////////////////
+                db.collection("RecyclerRequests").document(infosplit[1])
+                        .update("Status ", "RECEIVED");
+
+                Intent i = new Intent(PaymentActivity.this, RecyclerReceiveActivity.class);
+                startActivity(i);
             }
         }
     }
@@ -115,7 +118,8 @@ public class PaymentActivity extends AppCompatActivity {
             Intent i = new Intent(PaymentActivity.this, HomeActivity.class);
             startActivity(i);
         } else {
-            /////////////////////////////////////////
+            Intent i = new Intent(PaymentActivity.this, RecyclerReceiveActivity.class);
+            startActivity(i);
         }
     }
 }

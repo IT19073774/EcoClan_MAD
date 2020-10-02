@@ -137,8 +137,8 @@ public class InvoiceActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         final DocumentSnapshot document = task.getResult();
                         if (document.exists()) {
-
-                            senemail.setText(document.getData().get("Collector").toString());
+                            reciever = document.getData().get("Collector").toString();
+                            senemail.setText(reciever);
                             material = document.getData().get("Category").toString();
                             resmaterial.setText(material);
 
@@ -154,7 +154,7 @@ public class InvoiceActivity extends AppCompatActivity {
                                             Double col = Double.parseDouble(document2.getData().get(material).toString());
 
                                             Double weigt = Double.parseDouble(document.getData().get("Weight").toString());
-
+                                            weight = String.valueOf(weigt);
                                             resweight.setText(String.valueOf(weigt));
                                             Double costcal = col * weigt;
                                             amount = costcal.toString();
@@ -206,7 +206,7 @@ public class InvoiceActivity extends AppCompatActivity {
         radioButton= (RadioButton) findViewById(radid);
         if (radioButton.getText().equals("Credit Card")) {
             Intent i = new Intent(InvoiceActivity.this,PaymentActivity.class);
-            i.putExtra("INFO", infosplit[0]+"," + infosplit[1] + "," + amount + "," + infosplit[2]+ "," + material+ "," + reciever+ "," + current_user);
+            i.putExtra("INFO", infosplit[0]+"," + infosplit[1] + "," + amount + "," + weight+ "," + material+ "," + reciever+ "," + current_user);
             startActivity(i);
 
         } else {
@@ -232,7 +232,10 @@ public class InvoiceActivity extends AppCompatActivity {
                 Intent i = new Intent(InvoiceActivity.this, HomeActivity.class);
                 startActivity(i);
             } else {
-                ////////////////////////////////
+                db.collection("RecyclerRequests").document(infosplit[1])
+                        .update("Status ", "RECEIVED");
+                Intent i = new Intent(InvoiceActivity.this, RecyclerReceiveActivity.class);
+                startActivity(i);
             }
         }
 
