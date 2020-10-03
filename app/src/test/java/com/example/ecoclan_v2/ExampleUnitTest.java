@@ -53,6 +53,38 @@ public class ExampleUnitTest {
         assertEquals(1670.0,result,0.001);
     }
 
+
+
+    //IT19071480
+    //Unit test for Estimating cost of request for Recycler
+    private RecyclerRequestActivity recyclerRequestActivity;
+    public void setRecyclerRequestActivity(){
+        recyclerRequestActivity = new RecyclerRequestActivity();
+    }
+
+    //Both No chosen - default values for category id paper of rate 65 and weight is 0.00
+    @Test
+    public void WeightZero_isCorrect(){
+        double result = recyclerRequestActivity.getEstimate(0.00, 65.0);
+        assertEquals(0.0,result,0.001);
+    }
+
+    //Category Chosen (Assuming Glass is chosen) and Weight given as number with no decimals
+    @Test
+    public void NoDecimalWeight_isCorrect(){
+        double result = recyclerRequestActivity.getEstimate(10.00, 150.0);
+        assertEquals(1500.0,result,0.001);
+    }
+
+    //Category Chosen (Assuming Cloth is chosen) and Weight given as number with decimals
+    @Test
+    public void DecimalWeight_isCorrect(){
+        double result = recyclerRequestActivity.getEstimate(15.25, 130.0);
+        assertEquals(1982.5,result,0.001);
+    }
+
+
+
     //IT19056494
     //Unit test for ecoCal
     private ecoCal ECOCAL;

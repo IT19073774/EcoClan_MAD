@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -38,7 +39,7 @@ import java.util.Map;
 
 public class RecyclerRequestActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
-    Button btnDate, btnTime, btnAdd, btnSub;
+    Button btnDate, btnTime, btnAdd, btnSub, btnEst;
     TextView date, time, cost;
     EditText weight;
     String category;
@@ -62,6 +63,7 @@ public class RecyclerRequestActivity extends AppCompatActivity implements Adapte
         btnTime = findViewById(R.id.button12);
         btnAdd = findViewById(R.id.button1);
         btnSub = findViewById(R.id.button3);
+        btnEst = findViewById(R.id.button9);
 
         date = findViewById(R.id.editTextDate);
         time = findViewById(R.id.editTextDate3);
@@ -79,6 +81,31 @@ public class RecyclerRequestActivity extends AppCompatActivity implements Adapte
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, cat);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin.setAdapter(dataAdapter);
+
+        btnEst.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                 final Double num = Double.parseDouble(weight.getText().toString());
+
+                DocumentReference dRef = db.collection("RecyclerRates").document("lmeObPqMsxVzO9XrPyRe");
+                dRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot doc = task.getResult();
+                            if (doc.exists()) {
+
+                                Double Count =  Double.parseDouble(doc.getData().get(category).toString());
+                                Double cos = getEstimate(num, Count);
+                                cost.setText(String.valueOf(cos));
+                            }
+                        }
+                    }
+                });
+
+
+            }
+        });
 
     }
 
@@ -191,27 +218,9 @@ public class RecyclerRequestActivity extends AppCompatActivity implements Adapte
     }
 
 
-    public void getEstimate(View view){
-        final Double num = Double.parseDouble(weight.getText().toString());
+    public Double getEstimate(Double weight, Double Rate){
 
-        DocumentReference dRef = db.collection("RecyclerRates").document("lmeObPqMsxVzO9XrPyRe");
-        dRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot doc = task.getResult();
-                    if (doc.exists()) {
-
-                        Double Count =  Double.parseDouble(doc.getData().get(category).toString());
-
-                        Double cos = num * Count;
-
-                        cost.setText(String.valueOf(cos));
-
-                    }
-                }
-            }
-        });
+        return (weight * Rate);
 
     }
 
