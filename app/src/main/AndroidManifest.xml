@@ -104,7 +104,6 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" /> <!-- IT19071480 -->
         <activity android:name=".RecyclerProfileActivity" />
-        <activity android:name=".RecyclerSearchActivity" />
         <activity android:name=".RecyclerReceiveActivity" />
         <activity android:name=".RecyclerRequestActivity" />
         <activity

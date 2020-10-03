@@ -47,10 +47,6 @@ public class RecyclerHomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, RecyclerReceiveActivity.class);
         startActivity(intent);
     }
-    public void goToSearchPage(View view){
-        Intent intent = new Intent(this, RecyclerSearchActivity.class);
-        startActivity(intent);
-    }
     public void goToProfilePage(View view){
         Intent intent = new Intent(this, RecyclerProfileActivity.class);
         startActivity(intent);

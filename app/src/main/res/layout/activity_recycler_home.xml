@@ -45,33 +45,27 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="120dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="21dp"
         android:background="@drawable/ic_receive"
         android:onClick="goToReceivePage"
-        app:layout_constraintBottom_toTopOf="@+id/searchBtn"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/searchBtn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginBottom="12dp"
-        android:background="@drawable/ic_search"
-        android:onClick="goToSearchPage"
-        app:layout_constraintBottom_toTopOf="@+id/profileBtn"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="474dp" />
 
     <Button
         android:id="@+id/profileBtn"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="120dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="140dp"
         android:background="@drawable/ic_profile"
         android:onClick="goToProfilePage"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/receiveBtn" />
 
     <TextView
         android:id="@+id/textView"
@@ -89,21 +83,11 @@
         android:layout_width="124dp"
         android:layout_height="40dp"
         android:layout_marginEnd="96dp"
+        android:layout_marginBottom="27dp"
         android:text="@string/receiveBtn"
         android:textColor="#000000"
         android:textSize="60px"
-        app:layout_constraintBaseline_toBaselineOf="@+id/receiveBtn"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="124dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="96dp"
-        android:text="@string/searchBtn"
-        android:textColor="#000000"
-        android:textSize="60px"
-        app:layout_constraintBaseline_toBaselineOf="@+id/searchBtn"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
