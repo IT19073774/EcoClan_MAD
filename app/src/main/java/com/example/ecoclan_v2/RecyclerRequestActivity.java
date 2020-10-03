@@ -39,7 +39,7 @@ import java.util.Map;
 public class RecyclerRequestActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     Button btnDate, btnTime, btnAdd, btnSub;
-    TextView date, time;
+    TextView date, time, cost;
     EditText weight;
     String category;
     Calendar calendar;
@@ -65,6 +65,7 @@ public class RecyclerRequestActivity extends AppCompatActivity implements Adapte
 
         date = findViewById(R.id.editTextDate);
         time = findViewById(R.id.editTextDate3);
+        cost = findViewById(R.id.editTextDate4);
         weight = findViewById(R.id.editTextTextPersonName1);
 
         spin = (Spinner) findViewById(R.id.spinner);
@@ -190,5 +191,28 @@ public class RecyclerRequestActivity extends AppCompatActivity implements Adapte
     }
 
 
+    public void getEstimate(View view){
+        final Double num = Double.parseDouble(weight.getText().toString());
+
+        DocumentReference dRef = db.collection("RecyclerRates").document("lmeObPqMsxVzO9XrPyRe");
+        dRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot doc = task.getResult();
+                    if (doc.exists()) {
+
+                        Double Count =  Double.parseDouble(doc.getData().get(category).toString());
+
+                        Double cos = num * Count;
+
+                        cost.setText(String.valueOf(cos));
+
+                    }
+                }
+            }
+        });
+
+    }
 
 }

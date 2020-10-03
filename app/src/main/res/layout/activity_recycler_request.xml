@@ -8,6 +8,22 @@
     tools:context=".RecyclerRequestActivity">
 
 
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="134dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/roundedcorner"
+        android:onClick="pickDate"
+        android:text="@string/pickDate"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName1" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="69dp"
@@ -81,7 +97,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="62dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="214dp"
         android:text="@string/weight"
         android:textColor="#000000"
@@ -107,26 +123,58 @@
         android:layout_width="155dp"
         android:layout_height="30dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="47dp"
-        android:textSize="20sp"
         android:ems="10"
         android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/button12" />
+
+    <TextView
+        android:id="@+id/editTextDate2"
+        android:layout_width="155dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="47dp"
+        android:ems="10"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/button12" />
+
+    <TextView
+        android:id="@+id/editTextDate4"
+        android:layout_width="155dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="47dp"
+        android:ems="10"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDate3" />
 
     <TextView
         android:id="@+id/editTextDate3"
         android:layout_width="155dp"
         android:layout_height="30dp"
         android:layout_marginStart="7dp"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="47dp"
         android:ems="10"
-        android:textSize="20sp"
         android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
 
@@ -141,12 +189,23 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/editTextDate"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:text="@string/expectDate"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editTextDate4"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/button1"
         android:layout_width="32dp"
         android:layout_height="30dp"
-        android:layout_marginStart="121dp"
-        android:layout_marginTop="29dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/roundedcorner"
         android:onClick="add"
         android:text="+"
@@ -184,14 +243,14 @@
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/button1"
         app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/button1" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="198dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="45dp"
         android:layout_marginBottom="88dp"
         android:background="@drawable/roundedcorner"
         android:onClick="request"
@@ -204,30 +263,34 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.53"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate3" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextDate4"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/button9"
-        android:layout_width="134dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="42dp"
+        android:layout_width="159dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="217dp"
         android:background="@drawable/roundedcorner"
-        android:onClick="pickDate"
-        android:text="@string/pickDate"
+        android:onClick="getEstimate"
+        android:text="Estimate Cost"
         android:textAllCaps="false"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName1" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <Button
         android:id="@+id/button12"
         android:layout_width="134dp"
         android:layout_height="30dp"
-        android:layout_marginTop="42dp"
-        android:layout_marginEnd="51dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="48dp"
         android:background="@drawable/roundedcorner"
         android:onClick="pickTime"
         android:text="@string/pickTime"
