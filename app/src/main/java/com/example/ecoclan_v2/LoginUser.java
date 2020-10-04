@@ -27,8 +27,8 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginUser extends AppCompatActivity {
 
     EditText logemail, logpassword;
-    Button loginBtn,admin,RegBtn;
-    TextView  fgtpass,employeeloginredrict;
+    Button loginBtn,RegBtn;
+    TextView  fgtpass,employeeloginredirect;
     ProgressBar progressBarlogin;
     FirebaseAuth fAuth;
 
@@ -44,21 +44,29 @@ public class LoginUser extends AppCompatActivity {
         loginBtn = findViewById(R.id.loginBtn);
         RegBtn = findViewById(R.id.RegBtn);
         fgtpass = findViewById(R.id.fgtpass);
-        employeeloginredrict =findViewById(R.id.employeeloginredrict);
+        employeeloginredirect =findViewById(R.id.employeeloginredrict);
         progressBarlogin = findViewById(R.id.progressBarlogin);
         fAuth = FirebaseAuth.getInstance();
 
 
 
-        employeeloginredrict.setOnClickListener(new View.OnClickListener() {
+        //employee redirect
+        employeeloginredirect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
         });
 
+        //register btn
+        RegBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), RegisterUser.class));
+            }
+        });
 
-
+        //login button
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -144,9 +152,10 @@ public class LoginUser extends AppCompatActivity {
         });
 
     }
-
-    public void onBtnReg(View v) {
-        startActivity(new Intent(getApplicationContext(), RegisterUser.class));
+    //back button
+    public void back(View v) {
+        Intent i = new Intent(LoginUser.this,welcome.class);
+        startActivity(i);
     }
 
 }

@@ -133,6 +133,7 @@ public class EditProfile extends AppCompatActivity {
 
         updbtn= findViewById(R.id.updbtn);
 
+        //update btn
         updbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -40,6 +40,7 @@ public class Guide extends AppCompatActivity {
         setContentView(R.layout.activity_login_user);
         setContentView(R.layout.activity_guide);
 
+        //nav icons
         icon4 = findViewById(R.id.icon4);
         icon5 = findViewById(R.id.icon5);
 
@@ -77,7 +78,6 @@ public class Guide extends AppCompatActivity {
                 for(DocumentChange doc : queryDocumentSnapshots.getDocumentChanges()){
 
                     if(doc.getType() == DocumentChange.Type.ADDED){
-                        //String title = doc.getDocument().getString("Title");
                         List_guide list_guide = doc.getDocument().toObject(List_guide.class);
                         Instructions.add(list_guide);
 

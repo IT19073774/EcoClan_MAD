@@ -57,10 +57,7 @@ public class RegisterUser extends AppCompatActivity {
         fStore = FirebaseFirestore.getInstance();
         fAuth = FirebaseAuth.getInstance();
 
-       if(fAuth.getCurrentUser() != null){
-           startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            finish();
-        }
+
 
 
         RegBtn.setOnClickListener(new View.OnClickListener(){
@@ -119,8 +116,10 @@ public class RegisterUser extends AppCompatActivity {
                                     Log.d(TAG, "onSucess : User Profile is created for" + UserID);
                                     }
                                 });
+                            Intent i = new Intent(RegisterUser.this,userAccount.class);
+                            startActivity(i);
+                            finish();
 
-                            startActivity(new Intent(getApplicationContext(), userAccount.class));
 
                         }else {
                             Toast.makeText(RegisterUser.this, "Error! " +  task.getException().getMessage(), Toast.LENGTH_SHORT).show();

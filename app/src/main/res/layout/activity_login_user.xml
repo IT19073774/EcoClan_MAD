@@ -7,6 +7,21 @@
     android:background="@drawable/bglogin"
     tools:context=".LoginUser">
 
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:layout_toEndOf="@+id/textView2"
+        android:contentDescription="@string/todo"
+        android:onClick="back"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_btn" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -140,7 +155,6 @@
         android:layout_height="42dp"
         android:layout_marginBottom="188dp"
         android:background="@drawable/custom_btn_white"
-        android:onClick="onBtnReg"
         android:text="@string/btn_register"
         android:textColor="@color/U_Black"
         android:textSize="18sp"
