@@ -121,9 +121,6 @@ public class UserMap extends FragmentActivity implements OnMapReadyCallback, Ada
         materialspinner.setAdapter(dataAdapter);
 
 
-
-
-
         setlocationbtn = (Button) findViewById(R.id.setbtn);
 
         //back button
@@ -137,9 +134,9 @@ public class UserMap extends FragmentActivity implements OnMapReadyCallback, Ada
             }
         });
 
+        //set location btn
         setlocationbtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                //final String material = material_name.getText().toString().trim();
                 final String resource = resource_name.getText().toString().trim();
                 final String weight = estimate_weight.getText().toString().trim();
                 setlocationbtn.setVisibility(View.GONE);
@@ -284,26 +281,5 @@ public class UserMap extends FragmentActivity implements OnMapReadyCallback, Ada
     public void onConnectionFailed(ConnectionResult connectionResult) {
 
     }
-
-//    public void searchLocation(View view) {
-//        EditText locationSearch = (EditText) findViewById(R.id.editText);
-//        String location = locationSearch.getText().toString();
-//        List<Address> addressList = null;
-//
-//        if (location != null || !location.equals("")) {
-//            Geocoder geocoder = new Geocoder(this);
-//            try {
-//                addressList = geocoder.getFromLocationName(location, 1);
-//
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//            Address address = addressList.get(0);
-//            LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-//            mMap.addMarker(new MarkerOptions().position(latLng).title(location));
-//            mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
-//            Toast.makeText(getApplicationContext(),address.getLatitude()+" "+address.getLongitude(),Toast.LENGTH_LONG).show();
-//        }
-//    }
 
 }

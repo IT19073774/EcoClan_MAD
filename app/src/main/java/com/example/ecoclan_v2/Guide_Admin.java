@@ -41,6 +41,7 @@ public class Guide_Admin extends AppCompatActivity {
         fStore = FirebaseFirestore.getInstance();
 
 
+        //add btn
         add_Guide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

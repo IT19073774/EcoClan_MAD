@@ -78,7 +78,7 @@ public class userAccount extends AppCompatActivity {
             }
         });
 
-        //icons
+        //nav icons
         icon2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,6 +107,7 @@ public class userAccount extends AppCompatActivity {
         });
     }
 
+    //logout btn
     public void logout (View view){
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getApplicationContext(),LoginUser.class));
