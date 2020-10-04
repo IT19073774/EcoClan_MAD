@@ -1,14 +1,12 @@
 package com.example.ecoclan_v2;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,9 +19,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 
-public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
+public class AgreementDataAdapter extends RecyclerView.Adapter<AgreementDataAdapter.ViewHolder> {
     public List<DataList> ListG;
-    public DataAdapter(List<DataList> ListG){
+    public AgreementDataAdapter(List<DataList> ListG){
         this.ListG = ListG;
     }
     ProgressDialog dialog;
@@ -32,7 +30,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         dialog =new ProgressDialog(parent.getContext());
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.request_list_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.agreement_list_item, parent, false);
         return new ViewHolder(view);
     }
 
@@ -45,32 +43,6 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
         holder.contact.setText(ListG.get(position).getContact());
         holder.address.setText(ListG.get(position).getAddress());
 
-
-        holder.agree.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                dialog.setMessage("Creating Agreement ... Please Wait!");
-                dialog.show();
-                DocumentReference docref = FirebaseFirestore.getInstance().collection("RecyclerRequests").document(ListG.get(position).getReqID());
-                docref
-                        .update("Status ", "AGREED",
-                                "Collector", FirebaseAuth.getInstance().getCurrentUser().getEmail())
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Log.e("TAG", "DocumentSnapshot successfully updated!");
-                                dialog.hide();
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Log.e("TAG", "Error updating document", e);
-                                dialog.hide();
-                            }
-                        });
-            }
-        });
     }
 
     @Override
@@ -82,7 +54,6 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
         View mView;
 
         public TextView id, material, date, address, contact, company;
-        public Button agree;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             mView = itemView;
@@ -93,8 +64,6 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
             address = (TextView) mView.findViewById(R.id.address);
             contact = (TextView) mView.findViewById(R.id.contact);
             company = (TextView) mView.findViewById(R.id.company);
-            
-            agree = (Button) mView.findViewById(R.id.button);
 
         }
     }

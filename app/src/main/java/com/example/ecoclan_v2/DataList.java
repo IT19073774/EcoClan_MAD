@@ -2,20 +2,21 @@ package com.example.ecoclan_v2;
 
 public class DataList {
 
-    String ReqID, Name, Address, Contact, Category, Date, Time;
+    String ReqID, Name, Address, Contact, Category, Date, Time, CollectorEmail, Weight;
 
     public DataList() {
     }
 
-    public DataList(String reqID, String name, String address, String contact, String category, String date, String time) {
+    public DataList(String reqID, String name, String address, String contact, String category, String date, String time, String collectorEmail, String weight) {
         ReqID = reqID;
         Name = name;
         Address = address;
         Contact = contact;
         Category = category;
-
         Date = date;
         Time = time;
+        CollectorEmail = collectorEmail;
+        Weight = weight;
     }
 
     public String getReqID() {
@@ -72,5 +73,21 @@ public class DataList {
 
     public void setTime(String time) {
         Time = time;
+    }
+
+    public String getCollectorEmail() {
+        return CollectorEmail;
+    }
+
+    public void setCollectorEmail(String collectorEmail) {
+        CollectorEmail = collectorEmail;
+    }
+
+    public String getWeight() {
+        return Weight;
+    }
+
+    public void setWeight(String weight) {
+        Weight = weight;
     }
 }

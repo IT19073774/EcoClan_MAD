@@ -76,7 +76,7 @@ public class ResourceDetailActivity extends AppCompatActivity {
                                         Double col = Double.parseDouble(document2.getData().get(document.getData().get("Material").toString()).toString());
                                         Double eweight = Double.parseDouble(document.getData().get("EWeight").toString());
 
-                                        Double costcal = col * eweight;
+                                        Double costcal = calEstimateCost(col,eweight);
                                         cost.setText("Rs. " + costcal.toString());
 
                                     } else {
@@ -115,6 +115,10 @@ public class ResourceDetailActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public static Double calEstimateCost(Double EcoclanCollectorRate, Double EWeight) {
+        return (EcoclanCollectorRate * EWeight);
     }
 
     public void CollectForm(View v) {

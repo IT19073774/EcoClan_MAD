@@ -7,7 +7,8 @@
     android:layout_marginLeft = "10dp"
     card_view:cardElevation="10dp"
     android:layout_marginRight = "10dp"
-    android:layout_marginBottom = "5dp"
+    android:layout_marginTop= "5dp"
+    android:layout_marginBottom = "2dp"
     android:layout_height = "135dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,30 +38,28 @@
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="165dp"
+            android:layout_marginEnd="32dp"
             android:layout_marginTop="90dp"
             android:fontFamily="@font/hind_madurai_medium"
-            android:text="date"
+            android:text="12/12/2020"
             android:textColor="@color/colorAccent"
-            android:textSize="18sp"
-            card_view:layout_constraintStart_toStartOf="parent"
+            android:textSize="20sp"
+            card_view:layout_constraintEnd_toEndOf="parent"
+
             card_view:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/material"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="165dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="56dp"
             android:fontFamily="@font/hind_madurai_medium"
             android:text=" Kg - material"
             android:textColor="@color/colorAccent"
-            android:textSize="18sp"
-            card_view:layout_constraintStart_toStartOf="parent"
+            android:textSize="22sp"
+            card_view:layout_constraintEnd_toEndOf="parent"
+
             card_view:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -107,17 +106,6 @@
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="68dp"
-            android:layout_marginEnd="8dp"
-            android:textColor="@color/colorAccent"
-            android:background="@drawable/design1"
-            android:text="Agree"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

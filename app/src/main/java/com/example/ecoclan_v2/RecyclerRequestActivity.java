@@ -4,8 +4,11 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -36,8 +39,8 @@ import java.util.Map;
 
 public class RecyclerRequestActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
-    Button btnDate, btnTime, btnAdd, btnSub;
-    TextView date, time;
+    Button btnDate, btnTime, btnAdd, btnSub, btnEst;
+    TextView date, time, cost;
     EditText weight;
     String category;
     Calendar calendar;
@@ -52,15 +55,19 @@ public class RecyclerRequestActivity extends AppCompatActivity implements Adapte
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_recycler_request);
 
         btnDate = findViewById(R.id.button9);
         btnTime = findViewById(R.id.button12);
         btnAdd = findViewById(R.id.button1);
         btnSub = findViewById(R.id.button3);
+        btnEst = findViewById(R.id.button9);
 
         date = findViewById(R.id.editTextDate);
         time = findViewById(R.id.editTextDate3);
+        cost = findViewById(R.id.editTextDate4);
         weight = findViewById(R.id.editTextTextPersonName1);
 
         spin = (Spinner) findViewById(R.id.spinner);
@@ -74,6 +81,31 @@ public class RecyclerRequestActivity extends AppCompatActivity implements Adapte
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, cat);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin.setAdapter(dataAdapter);
+
+        btnEst.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                 final Double num = Double.parseDouble(weight.getText().toString());
+
+                DocumentReference dRef = db.collection("RecyclerRates").document("lmeObPqMsxVzO9XrPyRe");
+                dRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot doc = task.getResult();
+                            if (doc.exists()) {
+
+                                Double Count =  Double.parseDouble(doc.getData().get(category).toString());
+                                Double cos = getEstimate(num, Count);
+                                cost.setText(String.valueOf(cos));
+                            }
+                        }
+                    }
+                });
+
+
+            }
+        });
 
     }
 
@@ -186,5 +218,10 @@ public class RecyclerRequestActivity extends AppCompatActivity implements Adapte
     }
 
 
+    public Double getEstimate(Double weight, Double Rate){
+
+        return (weight * Rate);
+
+    }
 
 }
