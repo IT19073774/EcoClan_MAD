@@ -18,8 +18,9 @@ public class AdminMainActivity extends AppCompatActivity {
     CardView recycleCard;
     CardView verificationCard;
     CardView requestCard;
-    CardView historyCard;
+
     CardView guidecard;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class AdminMainActivity extends AppCompatActivity {
         recycleCard= findViewById(R.id.recycleCard) ;
         verificationCard= findViewById(R.id.verificationCard);
         requestCard= findViewById(R.id.requestCard);
-        historyCard= findViewById(R.id.historyCard);
+
         guidecard = findViewById(R.id.guidecard);
 
 
@@ -60,17 +61,12 @@ public class AdminMainActivity extends AppCompatActivity {
             }
         });
 
-        historyCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(AdminMainActivity.this, history.class));
-            }
-        });
+
 
         requestCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AdminMainActivity.this,verification.class));
+                startActivity(new Intent(AdminMainActivity.this,request_recycle.class));
             }
         });
 
@@ -78,7 +74,7 @@ public class AdminMainActivity extends AppCompatActivity {
         verificationCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AdminMainActivity.this,request_recycle.class));
+                startActivity(new Intent(AdminMainActivity.this,addNew.class));
             }
         });
 

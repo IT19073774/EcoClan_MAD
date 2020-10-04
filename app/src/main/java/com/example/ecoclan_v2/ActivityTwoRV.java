@@ -1,8 +1,11 @@
 package com.example.ecoclan_v2;
 
+import android.widget.Button;
+
 public class ActivityTwoRV {
 
    private  String UAddress ,UEmail , UFullName,  UPhone;
+
 
     private ActivityTwoRV(){
     }
