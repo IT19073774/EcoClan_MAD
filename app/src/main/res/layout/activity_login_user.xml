@@ -39,8 +39,8 @@
 
     <EditText
         android:id="@+id/logemail"
-        android:layout_width="323dp"
-        android:layout_height="42dp"
+        android:layout_width="319dp"
+        android:layout_height="50dp"
         android:background="@drawable/custom_edit_text"
         android:ems="10"
         android:hint="Email"
@@ -56,8 +56,8 @@
 
     <Button
         android:id="@+id/loginBtn"
-        android:layout_width="166dp"
-        android:layout_height="42dp"
+        android:layout_width="217dp"
+        android:layout_height="59dp"
         android:layout_marginBottom="200dp"
         android:background="@drawable/custom_btn_green"
         android:text="Login"
@@ -65,16 +65,15 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logpassword"
-        app:layout_constraintVertical_bias="0.703" />
+        app:layout_constraintVertical_bias="0.658" />
 
     <EditText
         android:id="@+id/logpassword"
-        android:layout_width="323dp"
-        android:layout_height="42dp"
-        android:layout_marginBottom="324dp"
+        android:layout_width="317dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/custom_edit_text"
         android:ems="10"
         android:hint="Password"
@@ -82,11 +81,9 @@
         android:paddingLeft="17dip"
         android:textColor="#1B1B1B"
         android:textColorHint="#535252"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logemail"
-        app:layout_constraintVertical_bias="0.081" />
+        app:layout_constraintTop_toBottomOf="@+id/logemail" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -151,16 +148,15 @@
 
     <Button
         android:id="@+id/RegBtn"
-        android:layout_width="166dp"
-        android:layout_height="42dp"
-        android:layout_marginBottom="188dp"
+        android:layout_width="217dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="136dp"
         android:background="@drawable/custom_btn_white"
         android:text="@string/btn_register"
         android:textColor="@color/U_Black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
     <View
@@ -168,11 +164,10 @@
         android:layout_width="290dp"
         android:layout_height="1dp"
         android:background="@color/Light_Gray"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/RegBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.718" />
+        app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

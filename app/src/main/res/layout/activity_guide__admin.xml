@@ -14,12 +14,12 @@
         android:fontFamily="@font/hind_madurai_semibold"
         android:text="Admin dashboard"
         android:textSize="33sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.839" />
 
     <TextView
         android:id="@+id/textView15"
@@ -29,26 +29,26 @@
         android:text="Guide Interface"
         android:textColor="@color/Dark_Gray"
         android:textSize="27sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView16"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.102" />
+        app:layout_constraintVertical_bias="0.782" />
 
     <TextView
         android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="194dp"
+        android:layout_height="28dp"
         android:text="Add articles to guide page"
         android:textColor="@color/Dark_Gray"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/title_guide"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.152"
+        app:layout_constraintHorizontal_bias="0.188"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.181" />
+        app:layout_constraintVertical_bias="0.907" />
 
     <View
         android:id="@+id/view2"
@@ -57,49 +57,49 @@
         android:layout_marginLeft="14dp"
         android:layout_marginRight="14dp"
         android:background="#7E7E7E"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView15"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.082" />
+        app:layout_constraintVertical_bias="0.877" />
 
     <EditText
         android:id="@+id/title_guide"
         android:layout_width="329dp"
         android:layout_height="52dp"
+        android:layout_marginTop="288dp"
         android:ems="10"
         android:hint="Title"
         android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/message_guide"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.228" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/message_guide"
         android:layout_width="331dp"
         android:layout_height="223dp"
+        android:layout_marginBottom="248dp"
         android:ems="10"
         android:hint="Content"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_guide"
-        app:layout_constraintVertical_bias="0.06" />
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/add_Guide"
-        android:layout_width="187dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="56dp"
+        android:layout_width="188dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/custom_btn_white"
         android:text="Add article"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.196"
+        app:layout_constraintHorizontal_bias="0.183"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/message_guide" />
 
