@@ -71,7 +71,11 @@ public class RegisterUser extends AppCompatActivity {
                 final String Phone = UserPhone.getText().toString().trim();
                 final String Address = UserAddress.getText().toString().trim();
 
-
+                //validations
+                if (TextUtils.isEmpty(FullName)){
+                    UserFullName.setError("Full Name Required.");
+                    return;
+                }
 
                 if (TextUtils.isEmpty(email)){
                         UserEmail.setError("Email Required.");
@@ -92,6 +96,15 @@ public class RegisterUser extends AppCompatActivity {
                     return;
                 }
 
+                if (TextUtils.isEmpty(Phone)){
+                    UserPhone.setError("Phone Number Required.");
+                    return;
+                }
+
+                if (TextUtils.isEmpty(Address)){
+                    UserAddress.setError("Address Required.");
+                    return;
+                }
 
                 progressBar.setVisibility(View.VISIBLE);
 
